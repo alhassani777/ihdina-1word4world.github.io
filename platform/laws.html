@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>القوانين والمسارات | إهدنا</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/laws.js"></script>
+</head>
+<body>
+<script>buildNav('laws.html')</script>
+<div class="wrap">
+
+  <h1 class="page">الإطار النظري — القوانين الكلية والمسارات</h1>
+  <p class="lead" id="summaryLine"></p>
+
+  <div class="notice">
+    <b>منهجية:</b> هذه القوانين نتائج بحثية استقرائية من تحليل 700+ كتلة عبر 114 سورة، تُعرض بنسب دقتها واستثناءاتها بشفافية — فهي فرضيات علمية قابلة للفحص والمراجعة، لا قطعيات.
+  </div>
+
+  <div class="grid g3" id="stats"></div>
+
+  <h1 class="page" style="font-size:18px">الفئات الوظيفية الثمانية</h1>
+  <div class="card"><table class="tbl" id="catTbl"></table></div>
+
+  <h1 class="page" style="font-size:18px">المسارات السبعة لحركة التنزيل</h1>
+  <div class="grid g2" id="paths"></div>
+
+  <h1 class="page" style="font-size:18px">القوانين الكلية (35)</h1>
+  <div class="filters" id="lawFilters"></div>
+  <div class="card"><table class="tbl" id="lawTbl"></table></div>
+
+  <h1 class="page" style="font-size:18px">المعادلات الحاكمة</h1>
+  <div id="eqs"></div>
+
+  <h1 class="page" style="font-size:18px">المكي والمدني — مقارنة بنيوية</h1>
+  <div class="card"><table class="tbl" id="mmTbl"></table></div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  const L=ISMA_LAWS;
+
+  document.getElementById('summaryLine').textContent =
+    `${L.title} — الإصدار ${L.version} · ${L.summary.laws_count} قانوناً بدقة ${L.summary.laws_accuracy} · ${L.summary.paths_count} مسارات · تحليل ${L.summary.total_blocks_analyzed} كتلة عبر ${L.summary.suras_analyzed} سورة و${L.summary.years_of_revelation} سنة من التنزيل`;
+
+  document.getElementById('stats').innerHTML = [
+    [L.summary.laws_count,'قانوناً كلياً'],
+    [L.summary.laws_accuracy,'متوسط الدقة'],
+    [L.summary.paths_count,'مسارات مكتشفة'],
+    [L.summary.categories_count,'فئات وظيفية']
+  ].map(([n,l])=>`<div class="card stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+
+  // الفئات
+  const catRows = Object.entries(L.categories).map(([code,c])=>{
+    const subs = c.subcategories
+      ? Object.entries(c.subcategories).filter(([,s])=>s.count>0).map(([k,s])=>`${k} ${s.name} (${s.count})`).join(' · ')
+      : '';
+    const count = c.count!=null ? c.count
+      : c.subcategories ? Object.values(c.subcategories).reduce((a,s)=>a+(s.count||0),0) : '';
+    return `<tr>
+      <td><span class="cat ${code}">${code}</span></td>
+      <td><b>${c.name}</b> <span style="color:var(--muted);font-size:11.5px">${c.name_en||''}</span></td>
+      <td>${c.description||''}${subs?`<div style="font-size:11.5px;color:var(--muted);margin-top:3px">${subs}</div>`:''}</td>
+      <td><b>${count}</b></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('catTbl').innerHTML =
+    '<tr><th>الرمز</th><th>الفئة</th><th>الوصف</th><th>عدد الكتل</th></tr>'+catRows;
+
+  // المسارات
+  document.getElementById('paths').innerHTML = L.paths.map(p=>`
+    <div class="card" style="margin:0">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <b style="color:var(--teal-d)">${p.id}. ${p.name}</b>
+        <span class="bd teal">مؤكد في ${p.confirmed_in} سورة</span>
+      </div>
+      <div style="direction:ltr;text-align:left;font-weight:700;color:var(--gold);font-size:13px;margin:8px 0">${p.sequence}</div>
+      <p style="font-size:13px;color:#55503f">${p.description}</p>
+      <p style="font-size:12px;color:var(--muted);margin-top:5px">النطاق: ${p.sura_types}</p>
+    </div>`).join('');
+
+  // القوانين + فلاتر المجموعات
+  const groups=[...new Set(L.laws.map(l=>l.group))];
+  let g='all';
+  document.getElementById('lawFilters').innerHTML =
+    `<button class="chip on" data-g="all">الكل (${L.laws.length})</button>`+
+    groups.map(x=>`<button class="chip" data-g="${x}">${x} (${L.laws.filter(l=>l.group===x).length})</button>`).join('');
+
+  function renderLaws(){
+    const rows=L.laws.filter(l=>g==='all'||l.group===g).map(l=>`<tr>
+      <td><b>${l.id}</b></td><td>${l.law}</td>
+      <td><span class="bd ${parseFloat(l.accuracy)>=95?'teal':parseFloat(l.accuracy)>=85?'gold':'red'}">${l.accuracy||'—'}</span></td>
+      <td style="font-size:12px;color:var(--muted)">${l.exceptions||'—'}</td>
+    </tr>`).join('');
+    document.getElementById('lawTbl').innerHTML =
+      '<tr><th>#</th><th>القانون</th><th>الدقة</th><th>الاستثناءات</th></tr>'+rows;
+  }
+  document.getElementById('lawFilters').addEventListener('click',e=>{
+    const c=e.target.closest('[data-g]'); if(!c)return;
+    document.querySelectorAll('[data-g]').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on'); g=c.dataset.g; renderLaws();
+  });
+  renderLaws();
+
+  // المعادلات
+  document.getElementById('eqs').innerHTML = (L.equations||[]).map(eq=>`
+    <div class="card">
+      <b style="color:var(--teal-d)">${eq.id}. ${eq.name}</b>
+      <div style="direction:ltr;text-align:left;font-family:monospace;background:#f6f1e7;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:14px">${eq.formula}</div>
+      <div style="font-size:12.5px;color:var(--muted)">${Object.entries(eq.variables||{}).map(([k,v])=>`<b style="color:var(--gold)">${k}</b>: ${v}`).join(' · ')}</div>
+      ${eq.describes?`<div style="font-size:12.5px;color:var(--teal);margin-top:6px;font-weight:700">تصف: ${eq.describes}</div>`:''}
+    </div>`).join('');
+
+  // مكي/مدني
+  const m=L.meccan_vs_medinan;
+  if(m){
+    const rows=[
+      ['عدد السور',m.meccan.sura_count,m.medinan.sura_count],
+      ['السنوات',m.meccan.years,m.medinan.years],
+      ['المسار الغالب',m.meccan.path,m.medinan.path],
+      ['الفئات المهيمنة',m.meccan.dominant_categories.join(' · '),m.medinan.dominant_categories.join(' · ')],
+      ['نسبة التشريع',m.meccan.legislation_percentage,m.medinan.legislation_percentage],
+      ['نسبة القصص',m.meccan.narrative_percentage,m.medinan.narrative_percentage],
+      ['نسبة البناء',m.meccan.building_percentage,m.medinan.building_percentage]
+    ].map(([a,b,c])=>`<tr><td><b>${a}</b></td><td>${b}</td><td>${c}</td></tr>`).join('');
+    document.getElementById('mmTbl').innerHTML =
+      '<tr><th>الخاصية</th><th>المكي</th><th>المدني</th></tr>'+rows;
+  }
+})();
+</script>
+</body>
+</html>

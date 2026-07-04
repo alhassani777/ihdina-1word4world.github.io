@@ -1,0 +1,106 @@
+/* إهدنا — منصة ISMA — الهوية البصرية المشتركة */
+:root{
+  --teal:#1f8f7d; --teal-d:#16695c; --gold:#b8862b; --gold2:#cba14a;
+  --cream:#f3ece1; --card:#fffaf2; --ink:#2c2a24; --muted:#8a8275; --line:#e6dccb;
+  --b:#2e7dd1; --t:#8a651d; --w:#c0392b; --h:#7d3fa8; --d:#1c7361; --r:#d17a2e; --s:#4a5ec1; --e:#159489;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 48px}
+
+/* الرأس والتنقل */
+header.site{background:linear-gradient(160deg,#fbf6ee,#ece2d2);border-bottom:2px solid var(--gold2);padding:18px 16px 0;text-align:center}
+header.site .tag{font-size:26px;color:var(--gold);font-weight:800;letter-spacing:1px}
+header.site .sub{font-size:14px;color:var(--teal);font-weight:700;margin-top:4px}
+nav.main{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:14px;padding-bottom:0}
+nav.main a{display:block;padding:9px 16px;border-radius:12px 12px 0 0;font-size:14px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid transparent;border-bottom:none}
+nav.main a.on{background:var(--cream);color:var(--teal);border-color:var(--line)}
+nav.main a:hover{color:var(--teal)}
+
+h1.page{font-size:22px;color:var(--teal-d);margin:26px 0 6px;font-weight:800}
+p.lead{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+
+/* البطاقات */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin-bottom:14px}
+.grid{display:grid;gap:14px}
+.grid.g2{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.grid.g3{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+
+/* الشارات */
+.bd{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:10px;background:#eee9df;color:#6b6355}
+.bd.teal{background:#e2f3ec;color:#1c7361}
+.bd.gold{background:#f6ecd2;color:#8a651d}
+.bd.red{background:#f7e3e0;color:#a33325}
+.bd.blue{background:#e3ecf8;color:#2e5da8}
+
+/* شريط التقدم */
+.prog{height:10px;background:#e8e0d2;border-radius:6px;overflow:hidden}
+.prog>i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold2));border-radius:6px;transition:.3s}
+
+/* الأزرار */
+.btn{display:inline-block;background:var(--teal);color:#fff;border:none;border-radius:12px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;text-align:center}
+.btn:hover{background:var(--teal-d)}
+.btn.ghost{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+.btn.gold{background:var(--gold)}
+.btn.sm{padding:6px 14px;font-size:12.5px;border-radius:9px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+/* تنويه شرعي */
+.notice{background:#fdf6e6;border:1px solid var(--gold2);border-radius:12px;padding:12px 16px;font-size:13px;color:#6b5316;margin-bottom:18px}
+.notice b{color:var(--gold)}
+.ai-note{background:#eef3fb;border:1px dashed #9db8dd;border-radius:10px;padding:10px 14px;font-size:12.5px;color:#3d5a82}
+
+/* فئات الكتل */
+.cat{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:24px;padding:0 8px;border-radius:8px;color:#fff;font-weight:800;font-size:12px}
+.cat.B,.cat.B1,.cat.B2,.cat.B3,.cat.B4,.cat.B5,.cat.B6{background:var(--b)}
+.cat.T{background:var(--t)}.cat.W{background:var(--w)}.cat.H{background:var(--h)}
+.cat.D{background:var(--d)}.cat.R{background:var(--r)}.cat.S{background:var(--s)}.cat.E{background:var(--e)}
+
+/* قائمة الكتل */
+.block-row{display:flex;align-items:flex-start;gap:12px;padding:12px 6px;border-bottom:1px solid var(--line)}
+.block-row:last-child{border-bottom:none}
+.block-row .info{flex:1}
+.block-row .nm{font-size:14.5px;font-weight:700}
+.block-row .meta{font-size:12px;color:var(--muted);margin-top:3px}
+.block-row.done{opacity:.55}
+.block-row.done .nm{text-decoration:line-through}
+
+/* الخط الزمني */
+.timeline{position:relative;padding-inline-start:28px}
+.timeline::before{content:"";position:absolute;inset-inline-start:9px;top:6px;bottom:6px;width:3px;background:linear-gradient(180deg,var(--teal),var(--gold2));border-radius:2px}
+.tl-ev{position:relative;margin-bottom:18px}
+.tl-ev::before{content:"";position:absolute;inset-inline-start:-25px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--gold);border:3px solid var(--cream)}
+.tl-ev .tt{font-weight:800;font-size:15px;color:var(--teal-d)}
+.tl-ev .tm{font-size:12px;color:var(--gold);font-weight:700}
+.tl-ev .dd{font-size:13.5px;color:#55503f;margin-top:3px}
+.tl-ev .qq{font-size:12.5px;color:var(--teal);margin-top:4px;font-weight:700}
+
+/* الاستبيان */
+.q-item{margin-bottom:16px}
+.q-item .qt{font-weight:700;font-size:14.5px;margin-bottom:8px}
+.q-item label{display:block;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;margin-bottom:6px;font-size:13.5px;cursor:pointer}
+.q-item label:hover{border-color:var(--gold2)}
+.q-item input{margin-inline-end:8px}
+.q-item label.sel{border-color:var(--teal);background:#eef7f3}
+
+/* جداول */
+table.tbl{width:100%;border-collapse:collapse;font-size:13px}
+table.tbl th{background:#efe7d8;color:var(--teal-d);padding:8px;text-align:right;font-size:12.5px}
+table.tbl td{padding:8px;border-bottom:1px solid var(--line)}
+
+/* فلاتر */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:6px 14px;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer;font-family:inherit}
+.chip.on{border-color:var(--teal);color:var(--teal);background:#eef7f3}
+
+footer.site{text-align:center;color:var(--muted);font-size:12px;padding:26px 0 8px}
+footer.site .g{color:var(--gold);font-weight:700}
+
+.stat{text-align:center}
+.stat .n{font-size:26px;font-weight:800;color:var(--teal)}
+.stat .l{font-size:12px;color:var(--muted)}
+
+@media(max-width:640px){
+  nav.main a{padding:8px 10px;font-size:12.5px}
+  h1.page{font-size:19px}
+}

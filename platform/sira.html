@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مزامنة السيرة | إهدنا</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/sira.js"></script>
+</head>
+<body>
+<script>buildNav('sira.html')</script>
+<div class="wrap">
+
+  <h1 class="page">مزامنة السيرة النبوية — الخط الزمني الموحد</h1>
+  <p class="lead">23 سنة من النزول المنجّم على محور زمني واحد (t = السنوات من البعثة): أين كان النبي ﷺ حين نزل الوحي؟ وما الحدث الذي استدعاه؟ وكيف تغيّر الواقع بعده؟</p>
+
+  <div class="filters" id="stageFilters"></div>
+
+  <div class="grid g2" id="stageCards" style="margin-bottom:20px"></div>
+
+  <div class="card">
+    <h3 style="color:var(--teal-d);margin-bottom:16px">الأحداث والوحي المصاحب</h3>
+    <div class="timeline" id="tl"></div>
+  </div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  const S=ISMA_SIRA;
+  let filter='all';
+
+  document.getElementById('stageFilters').innerHTML =
+    `<button class="chip on" data-st="all">كل المراحل</button>`+
+    S.stages.map(s=>`<button class="chip" data-st="${s.id}">${s.name.split('—')[0].trim()}</button>`).join('');
+
+  function renderStages(){
+    const list = filter==='all' ? S.stages : S.stages.filter(s=>s.id===filter);
+    document.getElementById('stageCards').innerHTML = list.map(s=>`
+      <div class="card" style="margin:0">
+        <span class="bd ${s.id[0]==='M'?'gold':'teal'}">${s.years} · سنوات ${s.t[0]}–${s.t[1]} من البعثة</span>
+        <h3 style="margin:8px 0 6px;color:var(--teal-d);font-size:15.5px">${s.name}</h3>
+        <p style="font-size:13px;color:#55503f">${s.desc}</p>
+        <p style="font-size:12px;color:var(--gold);font-weight:700;margin-top:6px">${s.path}</p>
+      </div>`).join('');
+  }
+
+  function renderTL(){
+    const evs = filter==='all' ? S.events : S.events.filter(e=>e.stage===filter);
+    document.getElementById('tl').innerHTML = evs.map(e=>`
+      <div class="tl-ev">
+        <div class="tm">t = ${e.t} · ${e.hijri}</div>
+        <div class="tt">${e.title}</div>
+        <div class="dd">${e.dd||e.desc}</div>
+        <div class="qq">الوحي المصاحب: ${e.suras}</div>
+      </div>`).join('');
+  }
+
+  document.getElementById('stageFilters').addEventListener('click',ev=>{
+    const c=ev.target.closest('[data-st]'); if(!c)return;
+    document.querySelectorAll('[data-st]').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on'); filter=c.dataset.st; renderStages(); renderTL();
+  });
+
+  renderStages(); renderTL();
+})();
+</script>
+</body>
+</html>

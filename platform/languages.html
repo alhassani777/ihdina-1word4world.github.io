@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سياسة اللغات | إهدنا</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/languages.js"></script>
+<style>
+.lang-chip{display:inline-block;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:7px 14px;font-size:13px;font-weight:700;color:var(--ink);margin:0 0 8px 8px}
+.track-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.track-head .dot{width:14px;height:14px;border-radius:50%}
+.phase-label{font-size:13.5px;font-weight:800;color:var(--gold);margin:14px 0 8px}
+.core-chip{background:linear-gradient(170deg,#fffaf0,#fdf3dd);border-color:var(--gold2);color:#8a651d;font-size:15px;padding:10px 22px}
+</style>
+</head>
+<body>
+<script>buildNav('languages.html')</script>
+<div class="wrap">
+
+  <h1 class="page">سياسة اللغات — ﴿وما أرسلنا من رسول إلا بلسان قومه﴾</h1>
+  <p class="lead" id="policyLine"></p>
+
+  <div class="grid g3" id="stats"></div>
+
+  <div class="card" id="coreCard" style="text-align:center"></div>
+  <div class="card" id="deepCard"></div>
+  <div class="card" id="kafahCard"></div>
+
+  <div class="card">
+    <h3 style="color:var(--teal-d);margin-bottom:10px">ملاحظات السياسة</h3>
+    <div id="notes"></div>
+  </div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  const L=window.ISMA_LANGS;
+  document.getElementById('policyLine').textContent=L.policy;
+
+  const deepCount=L.deep.phases.reduce((a,p)=>a+p.langs.length,0);
+  const kafahCount=L.kafah.phases.reduce((a,p)=>a+p.langs.length,0);
+  const total=new Set([...L.core.langs,
+    ...L.deep.phases.flatMap(p=>p.langs.map(x=>x.split(' (')[0])),
+    ...L.kafah.phases.flatMap(p=>p.langs.map(x=>x.split(' (')[0]))]).size;
+
+  document.getElementById('stats').innerHTML=[
+    [L.core.langs.length,'لغات أم في كل المشاريع'],
+    [deepCount,'لغة في مسار الفهم العميق'],
+    [kafahCount,'لغة في مشروع كافة للناس'],
+    ['+'+total,'لغة فريدة في السياسة كاملة']
+  ].map(([n,t])=>`<div class="card stat"><div class="n">${n}</div><div class="l">${t}</div></div>`).join('');
+
+  document.getElementById('coreCard').innerHTML=`
+    <h3 style="color:var(--gold);margin-bottom:4px">${L.core.name}</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px">${L.core.desc}</p>
+    ${L.core.langs.map(x=>`<span class="lang-chip core-chip">${x}</span>`).join('')}`;
+
+  function track(t){
+    return `
+      <div class="track-head">
+        <span class="dot" style="background:${t.color}"></span>
+        <h3 style="color:var(--teal-d)">${t.name}</h3>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:6px">${t.desc}</p>
+      ${t.phases.map(p=>`
+        <div class="phase-label">${p.name} — ${p.langs.length} لغة</div>
+        <div>${p.langs.map(x=>`<span class="lang-chip">${x}</span>`).join('')}</div>`).join('')}`;
+  }
+  document.getElementById('deepCard').innerHTML=track(L.deep);
+  document.getElementById('kafahCard').innerHTML=track(L.kafah);
+
+  document.getElementById('notes').innerHTML=L.notes.map(n=>
+    `<p style="font-size:13.5px;color:#55503f;margin-bottom:8px">◆ ${n}</p>`).join('');
+})();
+</script>
+</body>
+</html>

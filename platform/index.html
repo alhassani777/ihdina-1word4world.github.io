@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1f8f7d">
+<title>إهدنا — منصة ISMA</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/blocks.js"></script>
+</head>
+<body>
+<script>buildNav('index.html')</script>
+<div class="wrap">
+
+  <h1 class="page">القرآن كما نزل أول مرة — منهج حياة لا معلومة في ذاكرة</h1>
+  <p class="lead">تحاكي «إهدنا» النزولَ الأول للقرآن: كتلةً معرفيةً بعد كتلة، مزامنةً مع السيرة النبوية، مخصّصةً لشخصيتك وبيئتك — في نظام تربوي معرفي حركي واحد.</p>
+
+  <div class="notice">
+    <b>ضابط شرعي:</b> ترتيب المصحف توقيفي للتلاوة والعبادة، وإعادة الترتيب هنا <b>سقالة تعليمية</b> تحاكي تجربة التلقي الأول — لا بديل عن المصحف. والذكاء الاصطناعي أداة خادمة للوحي، ومرجع الحكم النص الشرعي وأهل العلم.
+  </div>
+
+  <div class="grid g3" id="stats"></div>
+
+  <h1 class="page" style="font-size:18px">وحدات المنصة</h1>
+  <div class="grid g2">
+    <div class="card">
+      <span class="bd teal">المنتج المحوري</span>
+      <h3 style="margin:8px 0 6px;color:var(--teal-d)">التفسير التفاعلي — قارئ الكتل</h3>
+      <p style="font-size:13.5px;color:#55503f">رحلة عبر الكتل المعرفية الـ1431 بترتيب النزول: العلق ← المدثر ← المزمل… كل كتلة بفئتها الوظيفية ومستواها، مع حفظ تقدمك.</p>
+      <div style="margin-top:12px"><a class="btn" href="tafsir.html">ابدأ الرحلة</a></div>
+    </div>
+    <div class="card">
+      <span class="bd gold">المحرك الذكي</span>
+      <h3 style="margin:8px 0 6px;color:var(--teal-d)">مفاعل الهداية</h3>
+      <p style="font-size:13.5px;color:#55503f">حلّل شخصيتك (القوي الأمين) وبيئتك (أم القرى)، ودع معادلة الأولوية ترشّح كتلتك التالية وجرعتك اليومية.</p>
+      <div style="margin-top:12px"><a class="btn gold" href="reactor.html">حلّل وابدأ</a></div>
+    </div>
+    <div class="card">
+      <span class="bd blue">الخط الزمني الموحد</span>
+      <h3 style="margin:8px 0 6px;color:var(--teal-d)">مزامنة السيرة النبوية</h3>
+      <p style="font-size:13.5px;color:#55503f">23 سنة من النزول على خط زمني واحد: أين كان النبي ﷺ حين نزلت الآيات؟ وما الحدث الذي استدعى الوحي؟</p>
+      <div style="margin-top:12px"><a class="btn ghost" href="sira.html">استعرض الخط الزمني</a></div>
+    </div>
+    <div class="card">
+      <span class="bd">المختبر البحثي</span>
+      <h3 style="margin:8px 0 6px;color:var(--teal-d)">القوانين والمسارات</h3>
+      <p style="font-size:13.5px;color:#55503f">35 قانوناً كلياً بدقة 91.2% وسبعة مسارات مكتشفة في حركة التنزيل، مع الفئات الثمانية والمعادلات الحاكمة.</p>
+      <div style="margin-top:12px"><a class="btn ghost" href="laws.html">استكشف القوانين</a></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <h3 style="color:var(--teal-d);margin-bottom:8px">المحاور الثلاثة</h3>
+    <table class="tbl">
+      <tr><th>المحور</th><th>المقام</th><th>الثمرة</th></tr>
+      <tr><td><b>الله</b></td><td>الحُسنى — معرفة المعبود بأسمائه</td><td>الركن المعرفي</td></tr>
+      <tr><td><b>الوحي</b></td><td>الأحسن — اتّباع أحسن ما أُنزل</td><td>الركن التربوي</td></tr>
+      <tr><td><b>الإنسان</b></td><td>الإحسان — أن تعبد الله كأنك تراه</td><td>الركن الحركي</td></tr>
+    </table>
+  </div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  const done = IHDINA.doneBlocks().size;
+  const total = ISMA_BLOCKS.total;
+  const ordered = ISMA_BLOCKS.blocks.filter(b=>b.revelation_order!=null).length;
+  const p = IHDINA.get('personality');
+  const stats = [
+    [total.toLocaleString('ar'), 'كتلة معرفية'],
+    [ordered.toLocaleString('ar'), 'كتلة مرتبة نزولياً'],
+    [done.toLocaleString('ar'), 'كتلة أتممتَها'],
+    [p ? IHDINA.PERSONALITIES[p].name : '—', p ? 'نمطك القرآني' : 'لم تحلل شخصيتك بعد']
+  ];
+  document.getElementById('stats').innerHTML = stats.map(([n,l])=>
+    `<div class="card stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+})();
+</script>
+</body>
+</html>

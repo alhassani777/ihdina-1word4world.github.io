@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مفاعل الهداية | إهدنا</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/blocks.js"></script>
+</head>
+<body>
+<script>buildNav('reactor.html')</script>
+<div class="wrap">
+
+  <h1 class="page">مفاعل الهداية — التخصيص وفق منهج القرآن</h1>
+  <p class="lead">الخطاب الرباني راعى اختلاف النفوس والبيئات. حلّل شخصيتك على معيار ﴿إن خير من استأجرت القوي الأمين﴾ وبيئتك على منهج ﴿لتنذر أم القرى ومن حولها﴾ — ثم يرشّح المفاعل كتلتك التالية.</p>
+
+  <div class="ai-note" style="margin-bottom:18px">
+    <b>تمييز واجب:</b> هذا التخصيص اقتراح خوارزمي تكيّفي (اجتهاد آلي) وليس حكماً شرعياً ولا وحياً — نتائجه استدلالات إرشادية قابلة للمراجعة، والمرجع النص وأهل العلم.
+  </div>
+
+  <!-- تحليل الشخصية -->
+  <div class="card" id="pCard">
+    <h3 style="color:var(--teal-d);margin-bottom:4px">١ · تحليل الشخصية — القوي الأمين</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px">أجب بصدق — لا إجابات صحيحة وخاطئة، بل نقطة انطلاق مناسبة.</p>
+    <div id="pQuiz"></div>
+    <button class="btn" id="pSubmit">استخرج نمطي</button>
+    <div id="pResult" style="margin-top:12px"></div>
+  </div>
+
+  <!-- تحليل البيئة -->
+  <div class="card" id="eCard">
+    <h3 style="color:var(--teal-d);margin-bottom:4px">٢ · تحليل البيئة — أم القرى</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px">تُقاس البيئة لاختيار الاستراتيجية والجرعة اليومية الملائمة.</p>
+    <div id="eQuiz"></div>
+    <button class="btn" id="eSubmit">صنّف بيئتي</button>
+    <div id="eResult" style="margin-top:12px"></div>
+  </div>
+
+  <!-- الترشيح -->
+  <div class="card">
+    <h3 style="color:var(--teal-d);margin-bottom:4px">٣ · الكتلة المرشّحة — معادلة الأولوية</h3>
+    <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px">
+      Priority(K,U) = Profile(U) × [0.40·N + 0.25·G + 0.20·S + 0.15·R]
+      — الحاجة، الهدف، التسلسل، الترتيب الزمني.
+    </p>
+    <div id="recBox"><p style="color:var(--muted)">أكمل التحليلين أعلاه ليعمل المفاعل.</p></div>
+  </div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  // ===== أسئلة الشخصية (3 أنماط: A قوي مبادر / B أمين ثابت / C متدبر باحث) =====
+  const PQ=[
+    {q:'حين تسمع فكرة تقنعك، ماذا تفعل غالباً؟',o:[
+      ['A','أبدأ بتطبيقها فوراً ولو بشكل ناقص'],
+      ['B','أرتّب لها عادة صغيرة ثابتة وألتزم بها'],
+      ['C','أبحث عنها أكثر وأسأل قبل أن أتحرك']]},
+    {q:'ما الذي يشغل بالك أكثر عند قراءة القرآن؟',o:[
+      ['C','المعنى — ماذا يريد الله مني بهذه الآية؟'],
+      ['A','الفعل — ما الأمر الذي أنفذه اليوم؟'],
+      ['B','الطاقة — الأثر في قلبي وثباتي']]},
+    {q:'أمام مهمة كبيرة، أنت أقرب إلى…',o:[
+      ['A','اقتحامها مباشرة وتقسيمها أثناء العمل'],
+      ['B','خطة صغيرة يومية لا تنقطع'],
+      ['C','فهم المهمة كاملة قبل أول خطوة']]},
+    {q:'ما الذي يُثبّتك وقت الضغط؟',o:[
+      ['B','وردي الثابت وعبادتي المنتظمة'],
+      ['C','فهم الحكمة مما يجري'],
+      ['A','عمل عاجل يغيّر الواقع']]},
+    {q:'أقرب وصف لك بين الناس؟',o:[
+      ['A','المبادر الذي يقود التحرك'],
+      ['B','الموثوق الذي يُعتمد عليه'],
+      ['C','المستشار الذي يُسأل عن الرأي']]}
+  ];
+  // ===== أسئلة البيئة =====
+  const EQ=[
+    {q:'موقف أهل بيتك أو أقرب الناس إليك من التزامك؟',o:[
+      [2,'يعينونني ويشجعونني'],[1,'لا يبالون'],[0,'يعارضون أو يضغطون عليّ']]},
+    {q:'هل حولك صحبة تعين على المنهج؟',o:[
+      [2,'نعم، صحبة قريبة'],[1,'معارف متفرقون'],[0,'لا أحد تقريباً']]},
+    {q:'هل يتوفر قربك مسجد أو مركز أو مجتمع مسلم فاعل؟',o:[
+      [2,'نعم وأصله بسهولة'],[1,'موجود لكن بعيد أو محدود'],[0,'غير متوفر']]},
+    {q:'وقتك اليومي المتاح للتعلم والتطبيق؟',o:[
+      [2,'ساعة فأكثر'],[1,'نحو نصف ساعة'],[0,'دقائق معدودة']]}
+  ];
+
+  function quizHTML(list,prefix){
+    return list.map((it,i)=>`<div class="q-item"><div class="qt">${i+1}. ${it.q}</div>
+      ${it.o.map(([v,t])=>`<label><input type="radio" name="${prefix}${i}" value="${v}">${t}</label>`).join('')}
+    </div>`).join('');
+  }
+  document.getElementById('pQuiz').innerHTML=quizHTML(PQ,'p');
+  document.getElementById('eQuiz').innerHTML=quizHTML(EQ,'e');
+
+  document.querySelectorAll('.q-item label').forEach(l=>l.addEventListener('click',()=>{
+    l.parentNode.querySelectorAll('label').forEach(x=>x.classList.remove('sel'));
+    l.classList.add('sel');
+  }));
+
+  function showPersonality(key){
+    const p=IHDINA.PERSONALITIES[key];
+    document.getElementById('pResult').innerHTML=
+      `<div class="notice" style="margin:0"><b>نمطك: ${p.name}</b> — ${p.desc}</div>`;
+  }
+  function showEnv(key){
+    const e=IHDINA.ENVIRONMENTS[key];
+    document.getElementById('eResult').innerHTML=
+      `<div class="notice" style="margin:0"><b>${e.name}</b> — ${e.desc} · الجرعة اليومية: ${e.dose} كتلة</div>`;
+  }
+
+  document.getElementById('pSubmit').onclick=()=>{
+    const tally={A:0,B:0,C:0};
+    for(let i=0;i<PQ.length;i++){
+      const v=document.querySelector(`[name=p${i}]:checked`);
+      if(!v){alert('أكمل جميع الأسئلة');return}
+      tally[v.value]++;
+    }
+    const key=Object.keys(tally).sort((a,b)=>tally[b]-tally[a])[0];
+    IHDINA.set('personality',key); showPersonality(key); recommend();
+  };
+  document.getElementById('eSubmit').onclick=()=>{
+    let score=0;
+    for(let i=0;i<EQ.length;i++){
+      const v=document.querySelector(`[name=e${i}]:checked`);
+      if(!v){alert('أكمل جميع الأسئلة');return}
+      score+=Number(v.value);
+    }
+    const key=score>=6?'supportive':score>=3?'neutral':'hard';
+    IHDINA.set('environment',key); showEnv(key); recommend();
+  };
+
+  // ===== معادلة الأولوية: ترشيح الكتلة التالية =====
+  function recommend(){
+    const pKey=IHDINA.get('personality'), eKey=IHDINA.get('environment');
+    const box=document.getElementById('recBox');
+    if(!pKey||!eKey) return;
+    const p=IHDINA.PERSONALITIES[pKey], env=IHDINA.ENVIRONMENTS[eKey];
+    const done=IHDINA.doneBlocks();
+
+    const ordered=ISMA_BLOCKS.blocks
+      .filter(b=>b.revelation_order!=null && !done.has(b.id))
+      .sort((a,b)=>a.revelation_order-b.revelation_order);
+    if(!ordered.length){ box.innerHTML='<p>أتممت كل الكتل المرتبة — ما شاء الله!</p>'; return; }
+
+    const minOrder=ordered[0].revelation_order, maxOrder=ordered[ordered.length-1].revelation_order;
+    const diffPref = env.dose===1 ? {'سهل':1,'متوسط':.6,'صعب':.25}
+                   : env.dose===2 ? {'سهل':.8,'متوسط':1,'صعب':.55}
+                   : {'سهل':.6,'متوسط':1,'صعب':.85};
+
+    function priority(b){
+      const base=IHDINA.catBase(b.category_code);
+      const N=(p.boost[base]||1)/1.3;                                    // الحاجة حسب النمط
+      const G=diffPref[b.difficulty]||.7;                                // الهدف حسب طاقة البيئة
+      const S=done.size? (b.level? 1-Math.abs((b.level||2)-Math.min(4,1+done.size/40))/4 : .6) : (b.level===1?1:.5); // التسلسل
+      const R=1-(b.revelation_order-minOrder)/(maxOrder-minOrder||1);    // الترتيب الزمني
+      return .40*N+.25*G+.20*S+.15*R;
+    }
+
+    const top=[...ordered].map(b=>({b,score:priority(b)}))
+      .sort((a,b)=>b.score-a.score).slice(0,env.dose);
+
+    box.innerHTML=`
+      <div class="ai-note" style="margin-bottom:10px">اقتراح خوارزمي مبني على نمطك (${p.name}) وبيئتك (${env.name}) — وليس ترتيباً شرعياً ملزماً.</div>
+      ${top.map(({b,score})=>`
+        <div class="block-row">
+          <span class="cat ${IHDINA.catBase(b.category_code)}">${b.category_code}</span>
+          <div class="info">
+            <div class="nm">${b.description||b.goal||b.id}</div>
+            <div class="meta">${b.id} · ${IHDINA.catName(b.category_code)} · ترتيب النزول ${b.revelation_order}${b.difficulty?' · '+b.difficulty:''}${b.minutes?' · '+b.minutes+' دقائق':''} · أولوية ${(score*100).toFixed(0)}٪</div>
+          </div>
+          <button class="btn sm" data-id="${b.id}">أتممتُ</button>
+        </div>`).join('')}
+      <div style="margin-top:12px"><a class="btn ghost sm" href="tafsir.html">تابع في القارئ الكامل</a></div>`;
+
+    box.querySelectorAll('[data-id]').forEach(btn=>btn.onclick=()=>{
+      IHDINA.toggleBlock(btn.dataset.id); recommend();
+    });
+  }
+
+  // استرجاع الحالة السابقة
+  const sp=IHDINA.get('personality'); if(sp) showPersonality(sp);
+  const se=IHDINA.get('environment'); if(se) showEnv(se);
+  recommend();
+})();
+</script>
+</body>
+</html>

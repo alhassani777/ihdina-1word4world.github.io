@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل المشاريع والأفكار | إهدنا</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/projects_dir.js"></script>
+<style>
+.search{width:100%;padding:12px 16px;border:1.5px solid var(--line);border-radius:14px;font-size:14.5px;font-family:inherit;background:#fff;margin-bottom:12px}
+.search:focus{outline:none;border-color:var(--teal)}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px}
+.proj-card{cursor:pointer}
+.proj-card .more{display:none;font-size:12.5px;color:#55503f;margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+.proj-card.open .more{display:block}
+.count-line{font-size:13px;color:var(--muted);margin:4px 0 14px}
+</style>
+</head>
+<body>
+<script>buildNav('projects.html')</script>
+<div class="wrap">
+
+  <h1 class="page">دليل المشاريع والأفكار</h1>
+  <p class="lead">34 مشروعاً على خمسة محاور + 20 فكرة توسعية (ISMA 2.0) — كلها وحدات فوق بنية واحدة، والنص القرآني مركز الجميع. اضغط أي بطاقة للتفاصيل.</p>
+
+  <input type="search" id="q" class="search" placeholder="ابحث في المشاريع والأفكار…">
+
+  <div class="filters" id="axisF"></div>
+  <div class="filters" id="statusF"></div>
+
+  <div class="count-line" id="count"></div>
+  <div class="grid g2" id="grid"></div>
+
+  <h1 class="page" style="font-size:18px;margin-top:30px">الأفكار التوسعية — ISMA 2.0</h1>
+  <div class="filters" id="domainF"></div>
+  <div class="grid g2" id="ideasGrid"></div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  const D=window.ISMA_DIR;
+  let q='', axis='all', status='all', domain='all';
+
+  document.getElementById('axisF').innerHTML =
+    `<button class="chip on" data-axis="all">كل المحاور</button>`+
+    Object.entries(D.axes).map(([k,a])=>`<button class="chip" data-axis="${k}">${a.name}</button>`).join('');
+  document.getElementById('statusF').innerHTML =
+    `<button class="chip on" data-status="all">كل الحالات</button>`+
+    Object.entries(D.statuses).map(([k,s])=>`<button class="chip" data-status="${k}">${s.name}</button>`).join('');
+  document.getElementById('domainF').innerHTML =
+    `<button class="chip on" data-domain="all">كل المجالات</button>`+
+    Object.entries(D.ideaDomains).map(([k,n])=>`<button class="chip" data-domain="${k}">${n}</button>`).join('');
+
+  function match(txt){ return !q || txt.toLowerCase().includes(q); }
+
+  function render(){
+    const list = D.projects.filter(p=>
+      (axis==='all'||p.axis===axis) &&
+      (status==='all'||p.status===status) &&
+      match(p.name+' '+p.desc+' '+(p.details||'')));
+    document.getElementById('grid').innerHTML = list.map(p=>{
+      const a=D.axes[p.axis], s=D.statuses[p.status];
+      return `<div class="card proj-card" data-n="${p.n}" style="margin:0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+          <b style="color:var(--teal-d);font-size:15px">${p.n}. ${p.name}</b>
+          <span class="pill" style="background:${s.bg};color:${s.color};white-space:nowrap">${s.name}</span>
+        </div>
+        <div style="margin:6px 0"><span class="pill" style="background:${a.color}18;color:${a.color}">${a.name}</span></div>
+        <p style="font-size:13px;color:#55503f">${p.desc}</p>
+        ${p.details?`<div class="more">◆ ${p.details}</div>`:''}
+      </div>`;
+    }).join('') || '<p style="color:var(--muted);padding:20px;text-align:center">لا نتائج مطابقة</p>';
+    document.getElementById('count').textContent = 'يعرض '+list.length+' من '+D.projects.length+' مشروعاً';
+
+    const ideas = D.ideas.filter(i=>(domain==='all'||i.domain===domain)&&match(i.name+' '+i.desc));
+    document.getElementById('ideasGrid').innerHTML = ideas.map(i=>`
+      <div class="card" style="margin:0;background:#fdf6e6">
+        <span class="pill" style="background:#f6ecd2;color:#8a651d">${D.ideaDomains[i.domain]}</span>
+        <b style="display:block;color:var(--teal-d);font-size:14.5px;margin:8px 0 5px">${i.name}</b>
+        <p style="font-size:12.5px;color:#55503f">${i.desc}</p>
+      </div>`).join('');
+  }
+
+  document.getElementById('q').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();render()});
+  ['axisF','statusF','domainF'].forEach(id=>{
+    document.getElementById(id).addEventListener('click',e=>{
+      const c=e.target.closest('.chip'); if(!c)return;
+      c.parentNode.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+      c.classList.add('on');
+      if(c.dataset.axis!==undefined) axis=c.dataset.axis;
+      if(c.dataset.status!==undefined) status=c.dataset.status;
+      if(c.dataset.domain!==undefined) domain=c.dataset.domain;
+      render();
+    });
+  });
+  document.getElementById('grid').addEventListener('click',e=>{
+    const card=e.target.closest('.proj-card');
+    if(card) card.classList.toggle('open');
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

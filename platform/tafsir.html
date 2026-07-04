@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التفسير التفاعلي — قارئ الكتل | إهدنا</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/core.js"></script>
+<script src="data/blocks.js"></script>
+</head>
+<body>
+<script>buildNav('tafsir.html')</script>
+<div class="wrap">
+
+  <h1 class="page">قارئ الكتل — محاكاة النزول الأول</h1>
+  <p class="lead">الكتل معروضة بترتيب النزول المعتمد في قاعدة ISMA v1. أتمم كتلتك ثم انتقل للتالية — التدرّج سنّة التنزيل: ﴿وقرآناً فرقناه لتقرأه على الناس على مُكث﴾.</p>
+
+  <div class="notice">
+    <b>شفافية علمية:</b> ترتيب النزول اجتهادي وعليه أقوال (ترتيب المصحف توقيفي، وهناك ترتيبات بحثية أخرى). الترتيب المعروض هو المختار في منهج ISMA كسقالة تعليمية. الكتل 1–145 و420 كتلة أخرى قيد الترتيب الزمني في النسخة v3 القادمة — تظهر هنا في قسم «قيد الترتيب».
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <b style="color:var(--teal-d)">تقدمك في الرحلة</b>
+      <span id="progTxt" class="bd teal"></span>
+    </div>
+    <div class="prog"><i id="progBar" style="width:0%"></i></div>
+    <div id="doseNote" style="font-size:12.5px;color:var(--muted);margin-top:8px"></div>
+  </div>
+
+  <div class="filters" id="catFilters"></div>
+  <div class="filters">
+    <button class="chip on" data-view="ordered">المرتبة نزولياً (١٠١١)</button>
+    <button class="chip" data-view="unordered">قيد الترتيب (٤٢٠)</button>
+    <button class="chip" data-view="done">ما أتممتُه</button>
+  </div>
+
+  <div class="card" id="list"></div>
+  <div style="text-align:center;margin-top:14px">
+    <button class="btn ghost" id="moreBtn">عرض المزيد</button>
+  </div>
+
+</div>
+<script>buildFooter()</script>
+<script>
+(function(){
+  const blocks = ISMA_BLOCKS.blocks;
+  const ordered = blocks.filter(b=>b.revelation_order!=null)
+                        .sort((a,b)=>a.revelation_order-b.revelation_order || a.id.localeCompare(b.id));
+  const unordered = blocks.filter(b=>b.revelation_order==null);
+
+  let view='ordered', cat='all', shown=40;
+  const PAGE=40;
+
+  // فلاتر الفئات
+  const cats=['all','B','T','W','H','D','R','S','E'];
+  document.getElementById('catFilters').innerHTML = cats.map(c=>
+    `<button class="chip ${c==='all'?'on':''}" data-cat="${c}">${c==='all'?'كل الفئات':`<span style="font-weight:800">${c}</span> ${IHDINA.catName(c)}`}</button>`).join('');
+
+  function currentSet(){
+    let set = view==='ordered'? ordered : view==='unordered'? unordered
+            : blocks.filter(b=>IHDINA.doneBlocks().has(b.id));
+    if(cat!=='all') set = set.filter(b=>IHDINA.catBase(b.category_code)===cat);
+    return set;
+  }
+
+  function rowHTML(b, done){
+    const meta=[];
+    if(b.revelation_order!=null) meta.push('ترتيب النزول: '+b.revelation_order);
+    if(b.sura) meta.push('السورة: '+b.sura + (b.verses? ' — الآيات '+b.verses:''));
+    if(b.level) meta.push('المستوى '+b.level);
+    if(b.path) meta.push('المسار '+b.path);
+    if(b.difficulty) meta.push(b.difficulty);
+    if(b.minutes) meta.push(b.minutes+' دقائق');
+    return `<div class="block-row ${done?'done':''}">
+      <span class="cat ${IHDINA.catBase(b.category_code)}">${b.category_code}</span>
+      <div class="info">
+        <div class="nm">${b.description || b.goal || b.id}</div>
+        ${b.goal && b.description ? `<div class="meta" style="color:var(--teal)">الهدف: ${b.goal}</div>`:''}
+        <div class="meta">${b.id} · ${IHDINA.catName(b.category_code)}${meta.length? ' · '+meta.join(' · '):''}</div>
+      </div>
+      <button class="btn sm ${done?'ghost':''}" data-id="${b.id}">${done?'إلغاء':'أتممتُ'}</button>
+    </div>`;
+  }
+
+  function render(){
+    const done=IHDINA.doneBlocks();
+    const set=currentSet();
+    const slice=set.slice(0,shown);
+    document.getElementById('list').innerHTML = slice.length
+      ? slice.map(b=>rowHTML(b,done.has(b.id))).join('')
+      : '<p style="color:var(--muted);text-align:center;padding:20px">لا كتل في هذا العرض بعد</p>';
+    document.getElementById('moreBtn').style.display = set.length>shown ? '' : 'none';
+
+    // progress
+    const pct=Math.round(done.size/blocks.length*100);
+    document.getElementById('progBar').style.width=pct+'%';
+    document.getElementById('progTxt').textContent=done.size+' / '+blocks.length+' ('+pct+'٪)';
+
+    // الجرعة اليومية حسب البيئة
+    const env=IHDINA.get('environment');
+    const doseEl=document.getElementById('doseNote');
+    if(env && IHDINA.ENVIRONMENTS[env]){
+      const e=IHDINA.ENVIRONMENTS[env];
+      doseEl.textContent='جرعتك اليومية الموصى بها ('+e.name+'): '+e.dose+' كتلة — التدرّج المشروط بالإتقان خير من الاستكثار.';
+    } else {
+      doseEl.innerHTML='لم تحدد بيئتك بعد — <a href="reactor.html" style="color:var(--teal)">حلّل بيئتك في مفاعل الهداية</a> لضبط جرعتك اليومية.';
+    }
+  }
+
+  document.getElementById('list').addEventListener('click',e=>{
+    const id=e.target.dataset && e.target.dataset.id;
+    if(id){ IHDINA.toggleBlock(id); render(); }
+  });
+  document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('[data-view]').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); view=b.dataset.view; shown=PAGE; render();
+  });
+  document.getElementById('catFilters').addEventListener('click',e=>{
+    const c=e.target.closest('[data-cat]'); if(!c) return;
+    document.querySelectorAll('[data-cat]').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on'); cat=c.dataset.cat; shown=PAGE; render();
+  });
+  document.getElementById('moreBtn').onclick=()=>{ shown+=PAGE; render(); };
+
+  render();
+})();
+</script>
+</body>
+</html>
