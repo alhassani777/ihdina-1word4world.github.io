@@ -21,8 +21,8 @@ p.sec-sub{text-align:center;color:var(--muted);font-size:15px;margin:8px auto 34
 .topbar nav a{padding:7px 12px;border-radius:9px;font-size:13px;font-weight:700;color:#5d574a;text-decoration:none}
 .topbar nav a:hover{background:#efe7d6;color:var(--teal)}
 .langs{display:flex;gap:4px}
-.langs select{border:1.5px solid var(--gold2);background:#fff;border-radius:9px;padding:6px 10px;font-size:13px;font-weight:800;cursor:pointer;color:var(--gold);font-family:inherit;max-width:150px}
-.langs select:focus{outline:none;border-color:var(--gold)}
+.langs button{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:5px 10px;font-size:12px;font-weight:800;cursor:pointer;color:var(--muted);font-family:inherit}
+.langs button.on{border-color:var(--gold);color:var(--gold)}
 
 /* hero */
 .hero{background:radial-gradient(1100px 500px at 70% -10%,rgba(31,143,125,.16),transparent),linear-gradient(165deg,#fbf6ec,#ece0ca);padding:46px 0 64px;text-align:center;position:relative;overflow:hidden}
