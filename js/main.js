@@ -48,8 +48,17 @@
     buildLangMenu();
     document.getElementById('donorMail').href=
       `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(T('email_subject'))}&body=${T('email_body')}`;
-    renderAxis(); renderShare();
+    renderFlags(); renderAxis(); renderShare();
     localStorage.setItem('ihdina_mkt_lang',lang);
+  }
+
+  // ===== حائط الأعلام =====
+  function renderFlags(){
+    const F=window.IHDINA_FLAGS; if(!F) return;
+    const chip=([fl,nm])=>`<div class="flag-chip"><span class="fl">${fl}</span><span class="nm">${nm}</span></div>`;
+    const d=document.getElementById('flagsDeep'), w=document.getElementById('flagsWorld');
+    if(d) d.innerHTML=F.deep.map(chip).join('')+`<div style="width:100%" class="reach-more">${T('reach_more')}</div>`;
+    if(w) w.innerHTML=F.world.map(chip).join('')+`<div style="width:100%" class="reach-more">${T('reach_more')}</div>`;
   }
 
   // قائمة منسدلة بالـ21 لغة (الجاهزة أولاً، ثم قيد المراجعة)

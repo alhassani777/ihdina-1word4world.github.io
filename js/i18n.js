@@ -102,6 +102,21 @@ window.IHDINA_I18N = {
                 de:"Assalamu alaikum,%0D%0A%0D%0AWir möchten die IHDINA-Plattform unterstützen. Wir interessieren uns für:%0D%0A- [ ] Spende / monatliche Förderung%0D%0A- [ ] Digitaler Waqf%0D%0A- [ ] Sprachpatenschaft: ______%0D%0A- [ ] Projektpatenschaft: ______%0D%0A- [ ] Institutionelle Partnerschaft%0D%0A%0D%0AName/Organisation:%0D%0ALand:"},
     share_text:{ar:"عش القرآن كما نزل أول مرة — منصة إهدنا للمسلم الجديد والمسلمة الجديدة",
                 en:"Live the Qur'an as it was first revealed — IHDINA, the platform for new Muslims",
-                de:"Erlebe den Koran, wie er zuerst offenbart wurde — IHDINA, die Plattform für neue Muslime"}
+                de:"Erlebe den Koran, wie er zuerst offenbart wurde — IHDINA, die Plattform für neue Muslime"},
+    reach_title:{ar:"رسالة واحدة… بلسان كل قوم",
+                 en:"One message… in the tongue of every people",
+                 de:"Eine Botschaft… in der Sprache jedes Volkes"},
+    reach_sub:{ar:"﴿وَمَا أَرْسَلْنَا مِن رَّسُولٍ إِلَّا بِلِسَانِ قَوْمِهِ﴾ — أكثر من 90 لغة في مسارين، لتصل رسالة الرحمة إلى كل إنسان",
+               en:"'We sent no messenger except in the tongue of his people' — 90+ languages on two tracks, so mercy reaches everyone",
+               de:"„Und Wir sandten keinen Gesandten außer in der Sprache seines Volkes\" — über 90 Sprachen auf zwei Wegen"},
+    reach_deep:{ar:"لغات الشعوب المسلمة — الفهم العميق",
+                en:"Languages of Muslim peoples — Deep Understanding",
+                de:"Sprachen muslimischer Völker — Tiefes Verständnis"},
+    reach_world:{ar:"لغات العالم — كافة للناس",
+                 en:"Languages of the world — To All Humanity",
+                 de:"Sprachen der Welt — Für die ganze Menschheit"},
+    reach_more:{ar:"وغيرها… في طريقها إلى المنصة",
+                en:"and more… on their way to the platform",
+                de:"und mehr… auf dem Weg zur Plattform"}
   }
 };
