@@ -121,3 +121,17 @@ footer .g{color:var(--gold);font-weight:800}
   .hero{padding:48px 0 44px}
   section{padding:44px 0}
 }
+
+/* REACH — حائط الأعلام */
+#reach{background:linear-gradient(165deg,#0f3a32,#14685a);color:#fff}
+#reach .sec{color:#fff}
+#reach .sec-sub{color:#bcd6cf}
+.reach-block{margin:22px 0 0}
+.reach-label{display:flex;align-items:center;gap:10px;justify-content:center;font-size:15px;font-weight:800;color:var(--gold2);margin-bottom:14px}
+.reach-label .dot{width:12px;height:12px;border-radius:50%}
+.flag-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:920px;margin:0 auto}
+.flag-chip{display:flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:9px 12px 7px;min-width:64px;transition:.15s;cursor:default}
+.flag-chip:hover{background:rgba(255,255,255,.18);transform:translateY(-3px)}
+.flag-chip .fl{font-size:26px;line-height:1}
+.flag-chip .nm{font-size:10.5px;font-weight:700;color:#e8f3ef;white-space:nowrap}
+.reach-more{text-align:center;color:#9dbcb2;font-size:13px;font-style:italic;margin-top:16px}

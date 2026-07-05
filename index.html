@@ -16,6 +16,7 @@
 <script src="js/i18n.js"></script>
 <script src="js/translations.js"></script>
 <script src="js/projects.js"></script>
+<script src="js/projects_showcase.js"></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
     <nav>
       <a href="#nazul" data-i18n="nazul_kicker">الفكرة الأمّ</a>
       <a href="#firsts" data-i18n="firsts_title">أوّليات</a>
-      <a href="#projects">34</a>
+      <a href="#projects" data-i18n="projects_title">المشاريع</a>
       <a href="#gallery" data-i18n="gallery_title">الهوية</a>
       <a href="#donors" data-i18n="cta_partner">كن شريكاً</a>
     </nav>
@@ -52,6 +53,9 @@
     <span class="demo"><a href="platform/index.html" target="_blank" data-i18n="demo_note"></a></span>
   </div>
 </div>
+
+<!-- COMMUNITY BAND -->
+<div class="photo-band"><img src="assets/photos/community.jpg" alt="1 Word 4 World — IHDINA" loading="lazy"></div>
 
 <!-- VERSE divider -->
 <div class="verse-band"><div class="wrap"><p data-i18n="verse_nazul"></p></div></div>
@@ -81,15 +85,15 @@
     <h2 class="sec" data-i18n="pillars_title"></h2>
     <div class="pillars">
       <div class="pillar">
-        <span class="pic" style="background-image:url(assets/gallery/mark-teal.jpg)"></span>
+        <span class="pic" style="background-image:url(assets/photos/proj-cards.jpg)"></span>
         <div class="pbody"><span class="pnum">01</span><h3 data-i18n="pillar1_t"></h3><p data-i18n="pillar1_d"></p></div>
       </div>
       <div class="pillar">
-        <span class="pic" style="background-image:url(assets/gallery/isma-mark.jpg)"></span>
+        <span class="pic" style="background-image:url(assets/photos/worldmap.jpg)"></span>
         <div class="pbody"><span class="pnum">02</span><h3 data-i18n="pillar2_t"></h3><p data-i18n="pillar2_d"></p></div>
       </div>
       <div class="pillar">
-        <span class="pic" style="background-image:url(assets/gallery/mihrab-gold.jpg)"></span>
+        <span class="pic" style="background-image:url(assets/photos/allah-arqam.jpg);background-position:center 30%"></span>
         <div class="pbody"><span class="pnum">03</span><h3 data-i18n="pillar3_t"></h3><p data-i18n="pillar3_d"></p></div>
       </div>
     </div>
@@ -128,11 +132,14 @@
   </div>
 </section>
 
+<!-- WELCOME BAND -->
+<div class="photo-band tall"><img src="assets/photos/welcome-wide.jpg" alt="Ihdina for new Muslim & Muslimah" loading="lazy"></div>
+
 <!-- ARQAM spotlight -->
 <section id="arqam" class="split">
   <div class="wrap split-in">
     <div class="split-media">
-      <img src="assets/gallery/mark-teal-gold.jpg" alt="دار الأرقم">
+      <img src="assets/photos/medallion.jpg" alt="دار الأرقم الثانية">
     </div>
     <div class="split-txt">
       <span class="kick" data-i18n="arqam_kicker"></span>
@@ -153,6 +160,9 @@
   <div class="wrap">
     <h2 class="sec light" data-i18n="reach_title"></h2>
     <p class="sec-sub light" data-i18n="reach_sub"></p>
+    <figure class="reach-map" data-full="assets/photos/worldmap.jpg">
+      <img src="assets/photos/worldmap.jpg" alt="نطاق لغوي يفتح أبواب الهداية" loading="lazy">
+    </figure>
     <div class="reach-block">
       <div class="reach-label"><span class="dot" style="background:var(--gold2)"></span><span data-i18n="reach_deep"></span></div>
       <div class="flag-wall" id="flagsDeep"></div>
@@ -196,11 +206,18 @@
 <!-- PROJECTS -->
 <section id="projects" class="tint">
   <div class="wrap">
-    <h2 class="sec" data-i18n="projects_title"></h2>
-    <p class="sec-sub" data-i18n="projects_sub"></p>
-    <div class="axis-tabs" id="axisTabs"></div>
-    <div class="axis-head" id="axisHead"></div>
+    <h2 class="sec" data-i18n="showcase_core_title"></h2>
+    <p class="sec-sub" data-i18n="showcase_core_sub"></p>
     <div class="proj-grid" id="projGrid"></div>
+
+    <h2 class="sec" style="margin-top:52px" data-i18n="showcase_exp_title"></h2>
+    <p class="sec-sub" data-i18n="showcase_exp_sub"></p>
+    <div class="exp-cloud" id="expCloud"></div>
+
+    <figure class="proj-showcase" data-full="assets/photos/projectmap.jpg" style="margin-top:40px">
+      <img src="assets/photos/projectmap.jpg" alt="ملصق مشاريع إهدنا" loading="lazy">
+      <figcaption data-i18n="projmap_note"></figcaption>
+    </figure>
   </div>
 </section>
 

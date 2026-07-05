@@ -1,5 +1,5 @@
 // إهدنا — Service Worker: عمل دون اتصال (Offline-first)
-const CACHE = 'ihdina-v1';
+const CACHE = 'ihdina-v3';
 const CORE = [
   './', './index.html', './css/style.css',
   './js/main.js', './js/i18n.js', './js/projects.js',

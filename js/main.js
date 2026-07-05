@@ -60,14 +60,16 @@
     {ar:'الواقع الحيّ والأثر الحضاري',en:'Living reality & civilization',de:'Gelebte Realität & Zivilisation'}
   ];
   const GALLERY=[
-    {src:'mark-teal-gold.jpg',cap:{ar:'الشعار الأساسي',en:'Primary mark',de:'Hauptzeichen'}},
-    {src:'sirat-dark.jpg',cap:{ar:'الصراط المستقيم',en:'The straight path',de:'Der gerade Weg'}},
-    {src:'mark-navy.jpg',cap:{ar:'نسخة كحلية',en:'Navy variant',de:'Marineblau'}},
-    {src:'mark-teal.jpg',cap:{ar:'نسخة فيروزية',en:'Teal variant',de:'Türkis'}},
-    {src:'isma-mark.jpg',cap:{ar:'علامة ISMA الكوفية',en:'ISMA Kufic mark',de:'ISMA-Kufi-Zeichen'}},
-    {src:'isma-arch.jpg',cap:{ar:'محراب ISMA',en:'ISMA mihrab',de:'ISMA-Mihrab'}},
-    {src:'sirat-teal.jpg',cap:{ar:'خط الثلث',en:'Thuluth calligraphy',de:'Thuluth-Kalligrafie'}},
-    {src:'rahmana.jpg',cap:{ar:'رحمانا',en:'Rahmana',de:'Rahmana'}}
+    {src:'photos/medallion.jpg',cap:{ar:'الشعار على ميدالية ذهبية',en:'The mark on a gold medallion',de:'Das Zeichen auf einer Goldmedaille'}},
+    {src:'photos/community.jpg',cap:{ar:'كلمةٌ واحدةٌ للعالم',en:'One Word for the World',de:'Ein Wort für die Welt'}},
+    {src:'photos/welcome-wide.jpg',cap:{ar:'مركز الترحيب بالمسلم الجديد',en:'The New Muslim welcome center',de:'Willkommenszentrum'}},
+    {src:'photos/worldmap.jpg',cap:{ar:'نطاق لغوي عالمي',en:'A global language reach',de:'Globale Sprachreichweite'}},
+    {src:'photos/proj-cards.jpg',cap:{ar:'مشاريع المؤسسة',en:'The institution’s projects',de:'Projekte der Institution'}},
+    {src:'photos/proj-icons.jpg',cap:{ar:'شعارات المشاريع',en:'Project marks',de:'Projekt-Zeichen'}},
+    {src:'photos/allah-arqam.jpg',cap:{ar:'دار الأرقم الثانية',en:'The Second Dar al-Arqam',de:'Das Zweite Dar al-Arqam'}},
+    {src:'photos/academy.jpg',cap:{ar:'أكاديمية ISMA',en:'ISMA Academy',de:'ISMA-Akademie'}},
+    {src:'photos/allah-gold.jpg',cap:{ar:'الله — خطٌّ ذهبي',en:'Allah — gold calligraphy',de:'Allah — Goldkalligrafie'}},
+    {src:'gallery/isma-mark.jpg',cap:{ar:'علامة ISMA الكوفية',en:'ISMA Kufic mark',de:'ISMA-Kufi-Zeichen'}}
   ];
   function tl(o){ return o[lang]||o.en||o.ar; }
 
@@ -112,12 +114,12 @@
   function renderGallery(){
     const host=document.getElementById('galleryGrid'); if(!host) return;
     host.innerHTML=GALLERY.map(g=>`
-      <figure class="gitem" data-full="assets/gallery/${g.src}">
-        <img src="assets/gallery/${g.src}" alt="${tl(g.cap)}" loading="lazy">
+      <figure class="gitem" data-full="assets/${g.src}">
+        <img src="assets/${g.src}" alt="${tl(g.cap)}" loading="lazy">
         <figcaption>${tl(g.cap)}</figcaption>
       </figure>`).join('');
-    host.querySelectorAll('.gitem').forEach(el=>{
-      el.addEventListener('click',()=>openLightbox(el.dataset.full));
+    document.querySelectorAll('.gitem,.reach-map,.proj-showcase').forEach(el=>{
+      el.onclick=()=>openLightbox(el.dataset.full);
     });
   }
   function openLightbox(src){
@@ -148,29 +150,20 @@
     document.getElementById('langSel').addEventListener('change',e=>{ lang=e.target.value; applyLang(); });
   }
 
-  // ===== المشاريع =====
+  // ===== دليل المشاريع المصوّر =====
   function renderAxis(){
-    const tabs=document.getElementById('axisTabs');
-    tabs.innerHTML=P.axes.map(a=>{
-      const count=P.projects.filter(p=>p.axis===a.id).length;
-      const on=a.id===axis;
-      return `<button data-axis="${a.id}" class="${on?'on':''}" style="${on?`background:${a.color};border-color:${a.color}`:''}">${a.icon} ${axName(a)} (${count})</button>`;
-    }).join('');
-    const a=P.axes.find(x=>x.id===axis);
-    document.getElementById('axisHead').innerHTML=`<div class="tg">${axTag(a)}</div>`;
-    document.getElementById('projGrid').innerHTML=P.projects
-      .map((p,i)=>({p,i})).filter(x=>x.p.axis===axis)
-      .map(({p,i})=>`<div class="proj ${p.star?'core-p':''}">
-          ${p.star?`<span class="star">${T('core_badge')}</span>`:''}
-          <div class="ic">${p.icon}</div>
-          <h4>${prName(p,i)}</h4>
-          <p>${prPitch(p,i)}</p>
-        </div>`).join('');
+    const S=window.IHDINA_SHOWCASE; if(!S) return;
+    const grid=document.getElementById('projGrid');
+    if(grid) grid.innerHTML=S.core.map((p,i)=>`
+      <div class="proj ${i<3?'core-p':''}">
+        ${i<3?`<span class="star">${T('core_badge')}</span>`:''}
+        <div class="ic"><img src="assets/proj/${p.ic}.jpg" alt="${tl(p.n)}"></div>
+        <h4>${tl(p.n)}</h4>
+        <p>${tl(p.d)}</p>
+      </div>`).join('');
+    const cloud=document.getElementById('expCloud');
+    if(cloud) cloud.innerHTML=S.expansion.map(e=>`<span class="chip">${tl(e)}</span>`).join('');
   }
-  document.getElementById('axisTabs').addEventListener('click',e=>{
-    const b=e.target.closest('[data-axis]');
-    if(b){ axis=b.dataset.axis; renderAxis(); }
-  });
 
   // ===== المشاركة الاجتماعية =====
   function renderShare(){

@@ -186,6 +186,17 @@ window.IHDINA_I18N = {
                  en:"The 'IHDINA — the Straight Path' mark: Arabic letterforms embracing infinity, a globe at the heart — a universal message rooted in revelation.",
                  de:"Das Zeichen „IHDINA — der gerade Weg\": arabische Lettern, die die Unendlichkeit umarmen, ein Globus im Herzen."},
 
+    projmap_note:{ar:"منظومةٌ متكاملة — انقر لعرض ملصق المشاريع الكامل",
+                  en:"An integrated ecosystem — click to view the full projects poster",
+                  de:"Ein integriertes Ökosystem — zum Ansehen des vollständigen Projektplakats klicken"},
+    showcase_core_title:{ar:"منظومة المشاريع الأساسية",en:"The Core Projects Ecosystem",de:"Das Kern-Projektökosystem"},
+    showcase_core_sub:{ar:"أربعةٌ وعشرون مشروعاً قائماً، لكلٍّ منها وظيفته — من قلب المؤسسة إلى بنيتها التقنية.",
+                       en:"Twenty-four live projects, each with its role — from the platform's heart to its technical core.",
+                       de:"Vierundzwanzig laufende Projekte, jedes mit seiner Rolle."},
+    showcase_exp_title:{ar:"أفكارٌ توسّعية — ISMA 2.0",en:"Expansion Ideas — ISMA 2.0",de:"Erweiterungsideen — ISMA 2.0"},
+    showcase_exp_sub:{ar:"عشرون فكرةً تُبنى وحدةً تلو وحدةٍ فوق البنية نفسها.",
+                      en:"Twenty ideas built unit by unit atop the same foundation.",
+                      de:"Zwanzig Ideen, Einheit für Einheit auf demselben Fundament."},
     verse_nazul:{ar:"﴿وَقُرْآنًا فَرَقْنَاهُ لِتَقْرَأَهُ عَلَى النَّاسِ عَلَىٰ مُكْثٍ وَنَزَّلْنَاهُ تَنزِيلًا﴾",
                  en:"“And a Qur'an We have divided, that you may recite it to people gradually, and We revealed it in stages.”",
                  de:"„Und einen Koran haben Wir in Teilen offenbart, damit du ihn den Menschen in Abständen vortragen mögest.“"}
