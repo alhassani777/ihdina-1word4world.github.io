@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1f8f7d">
+<meta name="theme-color" content="#0f3a32">
 <meta name="description" content="إهدنا — منصة المسلم الجديد والمسلمة الجديدة: عش القرآن كما نزل أول مرة. أول محاكاة تفاعلية للنزول الأول بالكتل المعرفية، بثلاثين لغة.">
 <meta property="og:title" content="IHDINA — New Muslim & Muslimah Center | إهدنا">
 <meta property="og:description" content="عش القرآن كما نزل أول مرة — تفسير تفاعلي يبدأ بك أنت.">
@@ -23,9 +23,10 @@
   <div class="in">
     <div class="logo"><img src="assets/logo-mark.png" alt="إهدنا" class="logo-img">IHDINA <small>New Muslim &amp; Muslimah Center</small></div>
     <nav>
-      <a href="#firsts" data-i18n="firsts_title">ثلاث أوّليات عالمية</a>
-      <a href="#journey" data-i18n="journey_title">رحلتك</a>
+      <a href="#nazul" data-i18n="nazul_kicker">الفكرة الأمّ</a>
+      <a href="#firsts" data-i18n="firsts_title">أوّليات</a>
       <a href="#projects">34</a>
+      <a href="#gallery" data-i18n="gallery_title">الهوية</a>
       <a href="#donors" data-i18n="cta_partner">كن شريكاً</a>
     </nav>
     <div class="langs" id="langBtns"></div>
@@ -34,6 +35,7 @@
 
 <!-- HERO -->
 <div class="hero">
+  <span class="hero-pattern"></span>
   <div class="wrap">
     <div class="hero-logo">
       <span class="halo"></span>
@@ -51,8 +53,51 @@
   </div>
 </div>
 
+<!-- VERSE divider -->
+<div class="verse-band"><div class="wrap"><p data-i18n="verse_nazul"></p></div></div>
+
+<!-- NAZUL — الفكرة الأم -->
+<section id="nazul" class="dark">
+  <span class="sec-deco" style="background-image:url(assets/gallery/mihrab-gold.jpg)"></span>
+  <div class="wrap">
+    <span class="kick" data-i18n="nazul_kicker"></span>
+    <h2 class="sec light" data-i18n="nazul_title"></h2>
+    <p class="sec-sub light" data-i18n="nazul_sub"></p>
+    <div class="flow-label"><span class="ln"></span><span data-i18n="nazul_flow_label"></span><span class="ln"></span></div>
+    <div class="blocks" id="blocksFlow"></div>
+    <div class="reactor">
+      <div class="reactor-core">☢</div>
+      <div class="reactor-txt">
+        <h3 data-i18n="reactor_t"></h3>
+        <p data-i18n="reactor_d"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="wrap">
+    <h2 class="sec" data-i18n="pillars_title"></h2>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pic" style="background-image:url(assets/gallery/mark-teal.jpg)"></span>
+        <div class="pbody"><span class="pnum">01</span><h3 data-i18n="pillar1_t"></h3><p data-i18n="pillar1_d"></p></div>
+      </div>
+      <div class="pillar">
+        <span class="pic" style="background-image:url(assets/gallery/isma-mark.jpg)"></span>
+        <div class="pbody"><span class="pnum">02</span><h3 data-i18n="pillar2_t"></h3><p data-i18n="pillar2_d"></p></div>
+      </div>
+      <div class="pillar">
+        <span class="pic" style="background-image:url(assets/gallery/mihrab-gold.jpg)"></span>
+        <div class="pbody"><span class="pnum">03</span><h3 data-i18n="pillar3_t"></h3><p data-i18n="pillar3_d"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FIRSTS -->
-<section id="firsts">
+<section id="firsts" class="tint">
   <div class="wrap">
     <h2 class="sec" data-i18n="firsts_title"></h2>
     <p class="sec-sub" data-i18n="firsts_sub"></p>
@@ -73,24 +118,54 @@
   </div>
 </section>
 
-<!-- REACH — حائط الأعلام -->
-<section id="reach">
+<!-- LAYERS — 15 طبقة -->
+<section id="layers">
   <div class="wrap">
-    <h2 class="sec" data-i18n="reach_title"></h2>
-    <p class="sec-sub" data-i18n="reach_sub"></p>
+    <h2 class="sec" data-i18n="layers_title"></h2>
+    <p class="sec-sub" data-i18n="layers_sub"></p>
+    <div class="layers" id="layersGrid"></div>
+    <p class="layers-more" data-i18n="layers_more"></p>
+  </div>
+</section>
+
+<!-- ARQAM spotlight -->
+<section id="arqam" class="split">
+  <div class="wrap split-in">
+    <div class="split-media">
+      <img src="assets/gallery/mark-teal-gold.jpg" alt="دار الأرقم">
+    </div>
+    <div class="split-txt">
+      <span class="kick" data-i18n="arqam_kicker"></span>
+      <h2 class="sec ar" data-i18n="arqam_title"></h2>
+      <p class="lead" data-i18n="arqam_lead"></p>
+      <div class="arqam-points">
+        <div><span>◈</span><span data-i18n="arqam_p1"></span></div>
+        <div><span>◈</span><span data-i18n="arqam_p2"></span></div>
+        <div><span>◈</span><span data-i18n="arqam_p3"></span></div>
+        <div><span>◈</span><span data-i18n="arqam_p4"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REACH — حائط الأعلام -->
+<section id="reach" class="dark">
+  <div class="wrap">
+    <h2 class="sec light" data-i18n="reach_title"></h2>
+    <p class="sec-sub light" data-i18n="reach_sub"></p>
     <div class="reach-block">
-      <div class="reach-label"><span class="dot" style="background:var(--teal)"></span><span data-i18n="reach_deep"></span></div>
+      <div class="reach-label"><span class="dot" style="background:var(--gold2)"></span><span data-i18n="reach_deep"></span></div>
       <div class="flag-wall" id="flagsDeep"></div>
     </div>
     <div class="reach-block">
-      <div class="reach-label"><span class="dot" style="background:var(--gold)"></span><span data-i18n="reach_world"></span></div>
+      <div class="reach-label"><span class="dot" style="background:var(--turq)"></span><span data-i18n="reach_world"></span></div>
       <div class="flag-wall" id="flagsWorld"></div>
     </div>
   </div>
 </section>
 
 <!-- JOURNEY -->
-<section id="journey">
+<section id="journey" class="tint">
   <div class="wrap">
     <h2 class="sec" data-i18n="journey_title"></h2>
     <p class="sec-sub"></p>
@@ -110,22 +185,31 @@
     <div class="numbers">
       <div><div class="n">1,431</div><div class="l" data-i18n="n_blocks"></div></div>
       <div><div class="n">35</div><div class="l" data-i18n="n_laws"></div></div>
-      <div><div class="n">90+</div><div class="l" data-i18n="n_langs"></div></div>
+      <div><div class="n">30+</div><div class="l" data-i18n="n_langs"></div></div>
       <div><div class="n">34</div><div class="l" data-i18n="n_projects"></div></div>
-      <div><div class="n">23</div><div class="l" data-i18n="n_years"></div></div>
-      <div><div class="n">7</div><div class="l" data-i18n="n_paths"></div></div>
+      <div><div class="n">15</div><div class="l" data-i18n="layers_title"></div></div>
+      <div><div class="n">3</div><div class="l" data-i18n="n_paths"></div></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="tint">
   <div class="wrap">
     <h2 class="sec" data-i18n="projects_title"></h2>
     <p class="sec-sub" data-i18n="projects_sub"></p>
     <div class="axis-tabs" id="axisTabs"></div>
     <div class="axis-head" id="axisHead"></div>
     <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<!-- GALLERY — الهوية -->
+<section id="gallery" class="dark">
+  <div class="wrap">
+    <h2 class="sec light" data-i18n="gallery_title"></h2>
+    <p class="sec-sub light" data-i18n="gallery_sub"></p>
+    <div class="gallery" id="galleryGrid"></div>
   </div>
 </section>
 
@@ -152,7 +236,7 @@
 </section>
 
 <!-- SHARE -->
-<section>
+<section class="tint">
   <div class="wrap">
     <div class="share">
       <h2 data-i18n="share_title"></h2>
@@ -166,6 +250,9 @@
   <div data-i18n="footer_line"></div>
   <div style="margin-top:6px"><span class="g">إهدنا الصراط المستقيم</span> · <span data-i18n="footer_privacy"></span></div>
 </footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox"><span class="lb-close">✕</span><img id="lbImg" src="" alt=""></div>
 
 <script src="js/main.js"></script>
 <script>
