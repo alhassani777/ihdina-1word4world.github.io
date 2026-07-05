@@ -117,6 +117,77 @@ window.IHDINA_I18N = {
                  de:"Sprachen der Welt — Für die ganze Menschheit"},
     reach_more:{ar:"وغيرها… في طريقها إلى المنصة",
                 en:"and more… on their way to the platform",
-                de:"und mehr… auf dem Weg zur Plattform"}
+                de:"und mehr… auf dem Weg zur Plattform"},
+
+    // ===== الفكرة الأمّ: محاكاة النزول / الكتل المعرفية =====
+    nazul_kicker:{ar:"الفكرة الأمّ", en:"The Founding Idea", de:"Die Gründungsidee"},
+    nazul_title:{ar:"محاكاة النزول الأوّل بالكتل المعرفية",
+                 en:"Simulating the First Revelation with Knowledge Blocks",
+                 de:"Die erste Offenbarung nachbilden — mit Wissensblöcken"},
+    nazul_sub:{ar:"لم يُنزَّل القرآن جملةً واحدة، بل مُنجَّماً مُتدرّجاً: كتلةً معرفيةً بعد كتلة. نُعيد تقديمه لك كما نزل أوّل مرة — فيُبنى الإيمان قبل الأحكام، تماماً كما بُني الجيل الأوّل.",
+               en:"The Qur'an was not sent all at once, but gradually — one knowledge block after another. We present it to you as it was first revealed: faith built before rulings, exactly as the first generation was built.",
+               de:"Der Koran wurde nicht auf einmal herabgesandt, sondern schrittweise — ein Wissensblock nach dem anderen. Wir zeigen ihn dir, wie er zuerst offenbart wurde: Glaube vor Geboten, genau wie die erste Generation."},
+    nazul_flow_label:{ar:"ترتيب النزول الأوّل", en:"Order of first revelation", de:"Reihenfolge der ersten Offenbarung"},
+    b_alaq:{ar:"العلق", en:"Al-ʿAlaq", de:"Al-ʿAlaq"},
+    b_alaq_c:{ar:"اقرأ — أول الوحي", en:"Read — the first revelation", de:"Lies — die erste Offenbarung"},
+    b_muddathir:{ar:"المدثّر", en:"Al-Muddaththir", de:"Al-Muddaththir"},
+    b_muddathir_c:{ar:"قُم فأنذر", en:"Arise and warn", de:"Steh auf und warne"},
+    b_muzzammil:{ar:"المزّمّل", en:"Al-Muzzammil", de:"Al-Muzzammil"},
+    b_muzzammil_c:{ar:"قيام الليل والتزوّد", en:"Night prayer & provision", de:"Nachtgebet & Rüstung"},
+    b_fatiha:{ar:"الفاتحة", en:"Al-Fatiha", de:"Al-Fatiha"},
+    b_fatiha_c:{ar:"اهدنا الصراط المستقيم", en:"Guide us to the straight path", de:"Führe uns den geraden Weg"},
+    b_ikhlas:{ar:"الإخلاص", en:"Al-Ikhlas", de:"Al-Ikhlas"},
+    b_ikhlas_c:{ar:"توحيد خالص", en:"Pure monotheism", de:"Reiner Tauhid"},
+    b_asr:{ar:"العصر", en:"Al-ʿAsr", de:"Al-ʿAsr"},
+    b_asr_c:{ar:"الإيمان والعمل والصبر", en:"Faith, work, patience", de:"Glaube, Werk, Geduld"},
+    reactor_t:{ar:"مفاعل الهداية النووي", en:"The Guidance Reactor", de:"Der Rechtleitungs-Reaktor"},
+    reactor_d:{ar:"محرّكٌ يرتّب دخول الكتل المعرفية العابرة للسور، ويدمجها في نظامٍ تربويٍّ معرفيٍّ حركيٍّ متكامل — فيتراكم الوحي طبقةً فوق طبقة في تسلسلٍ مقصود.",
+               en:"An engine that sequences cross-chapter knowledge blocks and fuses them into an integrated knowledge–character–action system — revelation accumulating layer upon layer by design.",
+               de:"Ein Motor, der kapitelübergreifende Wissensblöcke ordnet und zu einem integrierten System aus Wissen, Charakter und Handeln verschmilzt — Offenbarung, die sich Schicht um Schicht aufbaut."},
+
+    // ===== نقاط القوة الثلاث =====
+    pillars_title:{ar:"ثلاث ركائز تُميّز إهدنا", en:"Three Pillars That Set IHDINA Apart", de:"Drei Säulen, die IHDINA auszeichnen"},
+    pillar1_t:{ar:"الكتل المعرفية", en:"Knowledge Blocks", de:"Wissensblöcke"},
+    pillar1_d:{ar:"وحدةٌ معرفيةٌ جديدةٌ عابرةٌ للسور، غير قابلةٍ للتجزئة — بها يُرتَّب القرآن حسب نموّ المفهوم لا حسب المصحف، فيُبنى المتعلّم كما بُنيت الأمة الأولى.",
+               en:"A new, indivisible unit that crosses chapter boundaries — ordering the Qur'an by the growth of meaning rather than page order, building the learner as the first community was built.",
+               de:"Eine neue, unteilbare Einheit über Kapitelgrenzen hinweg — der Koran nach dem Wachstum der Bedeutung geordnet, nicht nach Seitenfolge."},
+    pillar2_t:{ar:"ثلاثون لغة وأكثر", en:"Thirty Languages & More", de:"Dreißig Sprachen & mehr"},
+    pillar2_d:{ar:"أول مؤسسة تعتمد ثلاثين لغةً لعرض القرآن ومشاريعه، بمسارين: تعميقٌ للشعوب المسلمة، وتبليغٌ كافةً للناس — وصولاً إلى لغة الإشارة.",
+               en:"The first institution to adopt thirty languages across two tracks: deepening for Muslim peoples, and outreach to all humanity — reaching even sign language.",
+               de:"Die erste Institution mit dreißig Sprachen auf zwei Wegen: Vertiefung für muslimische Völker und Dawa für die ganze Menschheit — bis zur Gebärdensprache."},
+    pillar3_t:{ar:"دار الأرقم الثانية", en:"The Second Dar al-Arqam", de:"Das Zweite Dar al-Arqam"},
+    pillar3_d:{ar:"كما احتضن النبي ﷺ من أسلم حديثاً في دار الأرقم قبل أن يشتدّ عودهم — بيئة احتضانٍ رقميةٍ ذكية يجد فيها المسلم الجديد معلّماً وصحبةً وأماناً.",
+               en:"Just as the Prophet ﷺ nurtured new Muslims in Dar al-Arqam before they grew strong — a smart digital incubator where every new Muslim finds a teacher, companions and safety.",
+               de:"Wie der Prophet ﷺ neue Muslime im Dar al-Arqam behütete — ein smarter digitaler Schutzraum mit Lehrer, Gemeinschaft und Sicherheit."},
+
+    // ===== الطبقات الـ15 =====
+    layers_title:{ar:"من النصّ إلى الحضارة: خمس عشرة طبقة",
+                  en:"From Text to Civilization: Fifteen Layers",
+                  de:"Vom Text zur Zivilisation: fünfzehn Schichten"},
+    layers_sub:{ar:"يمرّ التفسير التفاعلي بخمس عشرة طبقةً متدرّجة، تبدأ من تلقّي النصّ وتنتهي بالأثر الحضاري — فينتقل القرآن من الورق إلى القلب، ومن القلب إلى السلوك، ومن السلوك إلى المشروع.",
+                en:"The interactive tafsir passes through fifteen graded layers — from receiving the text to civilizational impact — moving the Qur'an from paper to heart, from heart to conduct, from conduct to a living project.",
+                de:"Der interaktive Tafsir durchläuft fünfzehn Schichten — vom Empfang des Textes bis zur zivilisatorischen Wirkung."},
+    layers_more:{ar:"كل طبقةٍ محرّكٌ قائمٌ بذاته داخل المنصة", en:"Each layer is an engine of its own inside the platform", de:"Jede Schicht ist ein eigener Motor in der Plattform"},
+
+    // ===== دار الأرقم =====
+    arqam_kicker:{ar:"الحاضنة", en:"The Incubator", de:"Der Schutzraum"},
+    arqam_title:{ar:"دار الأرقم الثانية الذكية", en:"The Second Smart Dar al-Arqam", de:"Das Zweite Smarte Dar al-Arqam"},
+    arqam_lead:{ar:"أول حاضنةٍ في الإسلام كانت بيتاً؛ واليوم نعيد بناءها رقمياً: مكانٌ آمنٌ لا يخرج فيه المهتدي من الشهادة إلى الفراغ، بل إلى معلّمٍ ورفاقٍ ومسارٍ واضح.",
+               en:"The first incubator in Islam was a house; today we rebuild it digitally — a safe place where a new Muslim does not step from the shahada into a void, but into a teacher, companions, and a clear path.",
+               de:"Der erste Schutzraum im Islam war ein Haus; heute bauen wir ihn digital neu — ein sicherer Ort, an dem ein neuer Muslim nach der Schahada nicht ins Leere tritt."},
+    arqam_p1:{ar:"معلّمٌ ومرافقٌ رقمي", en:"A teacher & digital companion", de:"Ein Lehrer & digitaler Begleiter"},
+    arqam_p2:{ar:"صحبةٌ تُثبّت على الحق", en:"Companions who keep you steadfast", de:"Gefährten, die standhaft halten"},
+    arqam_p3:{ar:"مسارٌ متدرّجٌ آمن", en:"A safe, graded path", de:"Ein sicherer, gestufter Weg"},
+    arqam_p4:{ar:"خصوصيةٌ وأمانٌ بالتصميم", en:"Privacy & safety by design", de:"Privatsphäre & Sicherheit by Design"},
+
+    // ===== معرض الهوية =====
+    gallery_title:{ar:"هوية المؤسسة", en:"The Institution's Identity", de:"Die Identität der Institution"},
+    gallery_sub:{ar:"الشعار «إهدنا الصراط المستقيم»: حرفٌ عربيٌّ يعانق اللانهاية، وكرةٌ أرضيةٌ في القلب — رسالةٌ عالميةٌ تنطلق من الوحي.",
+                 en:"The 'IHDINA — the Straight Path' mark: Arabic letterforms embracing infinity, a globe at the heart — a universal message rooted in revelation.",
+                 de:"Das Zeichen „IHDINA — der gerade Weg\": arabische Lettern, die die Unendlichkeit umarmen, ein Globus im Herzen."},
+
+    verse_nazul:{ar:"﴿وَقُرْآنًا فَرَقْنَاهُ لِتَقْرَأَهُ عَلَى النَّاسِ عَلَىٰ مُكْثٍ وَنَزَّلْنَاهُ تَنزِيلًا﴾",
+                 en:"“And a Qur'an We have divided, that you may recite it to people gradually, and We revealed it in stages.”",
+                 de:"„Und einen Koran haben Wir in Teilen offenbart, damit du ihn den Menschen in Abständen vortragen mögest.“"}
   }
 };

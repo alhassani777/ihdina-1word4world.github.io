@@ -36,6 +36,41 @@
   function prName(p,i){ const b=TR[lang]&&TR[lang].proj&&TR[lang].proj[i]; return (b&&b.name)||field(p,'name'); }
   function prPitch(p,i){ const b=TR[lang]&&TR[lang].proj&&TR[lang].proj[i]; return (b&&b.pitch)||field(p,'pitch'); }
 
+  // ===== بيانات ثابتة: الكتل المعرفية + الطبقات + المعرض =====
+  const BLOCKS=[
+    {t:'b_alaq',c:'b_alaq_c'},{t:'b_muddathir',c:'b_muddathir_c'},
+    {t:'b_muzzammil',c:'b_muzzammil_c'},{t:'b_fatiha',c:'b_fatiha_c'},
+    {t:'b_ikhlas',c:'b_ikhlas_c'},{t:'b_asr',c:'b_asr_c'}
+  ];
+  const LAYERS=[
+    {ar:'النصّ والتلقّي',en:'Text & reception',de:'Text & Empfang'},
+    {ar:'اللغة والدلالة',en:'Language & meaning',de:'Sprache & Bedeutung'},
+    {ar:'السياق وأسباب النزول',en:'Context & occasions',de:'Kontext & Anlässe'},
+    {ar:'ترتيب النزول',en:'Order of revelation',de:'Offenbarungsreihenfolge'},
+    {ar:'الكتلة المعرفية',en:'The knowledge block',de:'Der Wissensblock'},
+    {ar:'التصنيف الوظيفي',en:'Functional classification',de:'Funktionale Klassifikation'},
+    {ar:'التكامل المتراكم',en:'Cumulative integration',de:'Kumulative Integration'},
+    {ar:'البنية الفركتالية',en:'Fractal structure',de:'Fraktale Struktur'},
+    {ar:'مزامنة السيرة',en:'Seerah synchronization',de:'Seerah-Synchronisation'},
+    {ar:'الاستنباط',en:'Deduction',de:'Ableitung'},
+    {ar:'الأثر القلبي',en:'Heart impact',de:'Wirkung aufs Herz'},
+    {ar:'التخصيص',en:'Personalization',de:'Personalisierung'},
+    {ar:'التطبيق العملي',en:'Practical application',de:'Praktische Anwendung'},
+    {ar:'المشروع',en:'The project',de:'Das Projekt'},
+    {ar:'الواقع الحيّ والأثر الحضاري',en:'Living reality & civilization',de:'Gelebte Realität & Zivilisation'}
+  ];
+  const GALLERY=[
+    {src:'mark-teal-gold.jpg',cap:{ar:'الشعار الأساسي',en:'Primary mark',de:'Hauptzeichen'}},
+    {src:'sirat-dark.jpg',cap:{ar:'الصراط المستقيم',en:'The straight path',de:'Der gerade Weg'}},
+    {src:'mark-navy.jpg',cap:{ar:'نسخة كحلية',en:'Navy variant',de:'Marineblau'}},
+    {src:'mark-teal.jpg',cap:{ar:'نسخة فيروزية',en:'Teal variant',de:'Türkis'}},
+    {src:'isma-mark.jpg',cap:{ar:'علامة ISMA الكوفية',en:'ISMA Kufic mark',de:'ISMA-Kufi-Zeichen'}},
+    {src:'isma-arch.jpg',cap:{ar:'محراب ISMA',en:'ISMA mihrab',de:'ISMA-Mihrab'}},
+    {src:'sirat-teal.jpg',cap:{ar:'خط الثلث',en:'Thuluth calligraphy',de:'Thuluth-Kalligrafie'}},
+    {src:'rahmana.jpg',cap:{ar:'رحمانا',en:'Rahmana',de:'Rahmana'}}
+  ];
+  function tl(o){ return o[lang]||o.en||o.ar; }
+
   // ===== اللغة =====
   function applyLang(){
     const m=meta(lang);
@@ -48,8 +83,46 @@
     buildLangMenu();
     document.getElementById('donorMail').href=
       `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(T('email_subject'))}&body=${T('email_body')}`;
-    renderFlags(); renderAxis(); renderShare();
+    renderFlags(); renderBlocks(); renderLayers(); renderGallery(); renderAxis(); renderShare();
     localStorage.setItem('ihdina_mkt_lang',lang);
+  }
+
+  // ===== الكتل المعرفية =====
+  function renderBlocks(){
+    const host=document.getElementById('blocksFlow'); if(!host) return;
+    host.innerHTML=BLOCKS.map((b,i)=>`
+      <div class="block">
+        <span class="bi">${i+1}</span>
+        <span class="bt">${T(b.t)}</span>
+        <span class="bc">${T(b.c)}</span>
+      </div>`).join('<span class="barrow">→</span>');
+  }
+
+  // ===== الطبقات الـ15 =====
+  function renderLayers(){
+    const host=document.getElementById('layersGrid'); if(!host) return;
+    host.innerHTML=LAYERS.map((L,i)=>`
+      <div class="layer">
+        <span class="lnum">${String(i+1).padStart(2,'0')}</span>
+        <span class="ltxt">${tl(L)}</span>
+      </div>`).join('');
+  }
+
+  // ===== معرض الهوية =====
+  function renderGallery(){
+    const host=document.getElementById('galleryGrid'); if(!host) return;
+    host.innerHTML=GALLERY.map(g=>`
+      <figure class="gitem" data-full="assets/gallery/${g.src}">
+        <img src="assets/gallery/${g.src}" alt="${tl(g.cap)}" loading="lazy">
+        <figcaption>${tl(g.cap)}</figcaption>
+      </figure>`).join('');
+    host.querySelectorAll('.gitem').forEach(el=>{
+      el.addEventListener('click',()=>openLightbox(el.dataset.full));
+    });
+  }
+  function openLightbox(src){
+    const lb=document.getElementById('lightbox'), img=document.getElementById('lbImg');
+    img.src=src; lb.classList.add('on');
   }
 
   // ===== حائط الأعلام =====
@@ -127,6 +200,14 @@
       }
     };
   }
+
+  // ===== إغلاق صندوق الإضاءة =====
+  (function(){
+    const lb=document.getElementById('lightbox'); if(!lb) return;
+    const close=()=>lb.classList.remove('on');
+    lb.addEventListener('click',e=>{ if(e.target===lb||e.target.classList.contains('lb-close')) close(); });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
 
   applyLang();
 })();
