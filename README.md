@@ -1,25 +1,18 @@
-# IHDINA Platform v1.3 — Localized 3-Language Site (Fixed)
+# IHDINA Platform v1.4 — Global 91-Language Vision
 
-## الجديد في v1.3 (إصلاحات ما بعد الاختبار)
-1. **إصلاح خلفيات قسم «اختر الباب» (Gateways) في EN و DE**
-   - كانت الصور لا تُحمَّل بسبب مسار `--g-bg:url('../assets/...')`
-     الذي كان يُحسب نسبةً إلى `styles.css` في الجذر فيفشل.
-   - الحل: استُبدلت خلفيات الصور بتدرّجات لونية من هوية إهدنا
-     (تركوازي / أخضر عميق / ذهبي)، فزال العطل نهائيًا في كل اللغات.
-2. **إزالة تصادم النص في نفس البطاقات**
-   - كانت الملصقات كاملة النص تُغطّى بنص HTML إضافي.
-   - الآن البطاقات بلاطات نظيفة بنص واحد واضح.
+## New in this version
+- Added the 91-language institutional introduction document to the website.
+- Added a prominent download button on the Arabic, English, and German homepages.
+- Added the same document download to all three dedicated language pages.
+- Replaced the previous basic language grid on the homepage with a premium global marketing section.
+- Added:
+  - 91-language global vision headline.
+  - 3 strategic global metrics.
+  - Animated globe visual with floating flags.
+  - Auto-scrolling ribbon containing all 91 approved language flags and names.
+  - Founder phone contact.
+  - Direct link to explore all supported languages.
+- The language section is positioned before Featured Projects to strengthen the global value proposition.
 
-## نتيجة الاختبار الآلي (Chromium)
-- العربية / English / Deutsch: صفر أخطاء كونسول، صفر طلبات فاشلة.
-- السلايدر: 10 شرائح مترجمة، تبديل تلقائي كل 5 ثوانٍ، قابلة للنقر.
-- الروابط الداخلية: صفر روابط أو مراجع مكسورة عبر 33 صفحة.
-
-## البنية
-- الجذر: النسخة العربية (RTL)
-- `/en/`: English (LTR)
-- `/de/`: Deutsch (LTR)
-- `assets/` مشتركة، و`assets/slider_localized/` تحمل 30 صورة (10 × 3 لغات)
-
-## التشغيل
-افتح `index.html` في المتصفح (أو انشر المجلد كما هو على جذر النطاق).
+Document:
+- resources/IHDINA_91_Languages_Introduction.docx

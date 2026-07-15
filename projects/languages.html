@@ -1,38 +1,77 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="منصة واحدة، رسالة واحدة، هداية تصل إلى كل إنسان بلغته.">
-<title>٩١ لغة عالمية — IHDINA</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>اللغات المعتمدة — إهدنا</title>
+<meta content="نصل برسالة الهداية إلى البشرية عبر ٩١ لغة معتمدة، مع عرض أعلام اللغات وأسمائها لبيان السعة العالمية للمنصة." name="description"/>
 <style>
 body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#fbf6ed;color:#123b46;line-height:1.8}
-.wrap{width:min(1050px,92%);margin:28px auto}
+.wrap{width:min(1150px,92%);margin:28px auto 50px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
 .back{color:#08736c;font-weight:900;text-decoration:none}
 .languages{display:flex;gap:6px;flex-wrap:wrap}
 .languages a{text-decoration:none;padding:7px 10px;border-radius:999px;background:#fff;border:1px solid rgba(9,83,82,.15);color:#17434e;font-weight:800;font-size:.86rem}
 .languages a.active{background:#075e5b;color:#fff}
-.hero{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 18px 60px rgba(12,58,65,.13)}
-.hero img{width:100%;max-height:520px;object-fit:contain;background:#fff}
-.copy{padding:30px}
-h1{font-size:clamp(2rem,5vw,4rem);margin:0 0 8px}
-p{color:#667c81;font-size:1.08rem}
+.hero{background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 18px 60px rgba(12,58,65,.13);padding:32px}
 .badge{display:inline-block;padding:8px 12px;border-radius:999px;background:#eef8f6;color:#075e5b;font-weight:900}
-</style></head>
-<body><div class="wrap">
+h1{font-size:clamp(2rem,5vw,4rem);margin:10px 0}
+p{color:#667c81;font-size:1.04rem}
+.stats{display:flex;align-items:center;gap:14px;background:#f6faf9;border:1px solid rgba(9,83,82,.08);padding:16px 18px;border-radius:20px;margin:18px 0 20px}
+.stats .n{font-size:2.3rem;font-weight:900;color:#075e5b}
+.searchbar{margin:18px 0 24px}
+.searchbar input{width:100%;padding:15px 18px;border-radius:16px;border:1px solid rgba(9,83,82,.15);font-size:1rem;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(9,83,82,.09);border-radius:18px;padding:14px 16px;box-shadow:0 10px 26px rgba(12,58,65,.05)}
+.flag{font-size:1.7rem}
+.name{font-weight:800;color:#123b46}
+.note{margin-top:18px;color:#7a8e93}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));} .hero{padding:22px}}
+@media(max-width:460px){.grid{grid-template-columns:1fr;}}
+
+.doc-download-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:24px;padding:18px 20px;border-radius:20px;background:linear-gradient(135deg,#eef8f6,#fff7e8);border:1px solid rgba(9,83,82,.12)}
+.doc-download-panel strong{display:block;color:#075e5b;font-size:1.08rem}
+.doc-download-panel p{margin:3px 0 0;font-size:.92rem}
+.download-link{text-decoration:none;white-space:nowrap;background:#075e5b;color:#fff;padding:11px 15px;border-radius:14px;font-weight:900}
+@media(max-width:650px){.doc-download-panel{flex-direction:column;align-items:stretch}.download-link{text-align:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
 <div class="top">
 <a class="back" href="../index.html">← العودة إلى الصفحة الرئيسية</a>
 <div class="languages">
 <a class="active" href="languages.html">العربية</a>
-<a class="" href="../en/projects/languages.html">English</a>
-<a class="" href="../de/projects/languages.html">Deutsch</a>
+<a class="" href="../../en/projects/languages.html">English</a>
+<a class="" href="../../de/projects/languages.html">Deutsch</a>
 </div>
 </div>
 <div class="hero">
-<img src="../assets/languages_91.png" alt="">
-<div class="copy">
-<span class="badge">صفحة المشروع — نسخة تأسيسية</span>
-<h1>٩١ لغة عالمية</h1>
-<p>منصة واحدة، رسالة واحدة، هداية تصل إلى كل إنسان بلغته.</p>
-<p>سيتم تطوير هذه الصفحة لاحقًا ركنًا ركنًا وفق هوية المشروع ومنهجه ومحتواه التشغيلي.</p>
-</div></div></div></body></html>
+<span class="badge">صفحة مشروع — اللغات العالمية</span>
+<h1>٩١ لغة معتمدة في المشروع</h1>
+<p>نصل برسالة الهداية إلى البشرية عبر ٩١ لغة معتمدة، مع عرض أعلام اللغات وأسمائها لبيان السعة العالمية للمنصة.</p>
+<div class="stats"><div class="n">91</div><div>لغة معتمدة</div></div>
+<p>تعرض هذه الصفحة اللغات المعتمدة في المنصة مع أعلامها وأسمائها، ويمكن تطويرها لاحقًا إلى مسارات ترجمة وأولويات إطلاق.</p>
+<div class="searchbar"><input id="languageSearch" placeholder="ابحث عن لغة..." type="search"/></div>
+<div class="grid" id="languageGrid"><div class="card" data-search="العربية arabic arabisch"><span class="flag">🇸🇦</span><span class="name">العربية</span></div><div class="card" data-search="الإنجليزية english englisch"><span class="flag">🇬🇧</span><span class="name">الإنجليزية</span></div><div class="card" data-search="الأردية urdu urdu"><span class="flag">🇵🇰</span><span class="name">الأردية</span></div><div class="card" data-search="الباهاسا (الإندونيسية) indonesian indonesisch"><span class="flag">🇮🇩</span><span class="name">الباهاسا (الإندونيسية)</span></div><div class="card" data-search="البنغالية bengali bengalisch"><span class="flag">🇧🇩</span><span class="name">البنغالية</span></div><div class="card" data-search="الجاوية javanese javanisch"><span class="flag">🇮🇩</span><span class="name">الجاوية</span></div><div class="card" data-search="التركية turkish türkisch"><span class="flag">🇹🇷</span><span class="name">التركية</span></div><div class="card" data-search="الفارسية persian persisch"><span class="flag">🇮🇷</span><span class="name">الفارسية</span></div><div class="card" data-search="البشتو pashto paschtu"><span class="flag">🇦🇫</span><span class="name">البشتو</span></div><div class="card" data-search="الكردية kurdish kurdisch"><span class="flag">🏳️</span><span class="name">الكردية</span></div><div class="card" data-search="البنجابية punjabi pandschabi"><span class="flag">🇮🇳</span><span class="name">البنجابية</span></div><div class="card" data-search="الهوسا hausa hausa"><span class="flag">🇳🇬</span><span class="name">الهوسا</span></div><div class="card" data-search="البنجابية (الغربية) western punjabi west-pandschabi"><span class="flag">🇵🇰</span><span class="name">البنجابية (الغربية)</span></div><div class="card" data-search="البنجابية (الشرقية) eastern punjabi ost-pandschabi"><span class="flag">🇮🇳</span><span class="name">البنجابية (الشرقية)</span></div><div class="card" data-search="الكجراتية gujarati gujarati"><span class="flag">🇮🇳</span><span class="name">الكجراتية</span></div><div class="card" data-search="الصومالية somali somali"><span class="flag">🇸🇴</span><span class="name">الصومالية</span></div><div class="card" data-search="الأذرية azerbaijani aserbaidschanisch"><span class="flag">🇦🇿</span><span class="name">الأذرية</span></div><div class="card" data-search="الأوزبكية uzbek usbekisch"><span class="flag">🇺🇿</span><span class="name">الأوزبكية</span></div><div class="card" data-search="الفولانية fulani fulani"><span class="flag">🇸🇳</span><span class="name">الفولانية</span></div><div class="card" data-search="السندية sindhi sindhi"><span class="flag">🇵🇰</span><span class="name">السندية</span></div><div class="card" data-search="الكشميرية kashmiri kaschmirisch"><span class="flag">🇮🇳</span><span class="name">الكشميرية</span></div><div class="card" data-search="المالايالم malayalam malayalam"><span class="flag">🇮🇳</span><span class="name">المالايالم</span></div><div class="card" data-search="الأمهرية amharic amharisch"><span class="flag">🇪🇹</span><span class="name">الأمهرية</span></div><div class="card" data-search="البورمية burmese birmanisch"><span class="flag">🇲🇲</span><span class="name">البورمية</span></div><div class="card" data-search="الكازاخية kazakh kasachisch"><span class="flag">🇰🇿</span><span class="name">الكازاخية</span></div><div class="card" data-search="الطاجيكية tajik tadschikisch"><span class="flag">🇹🇯</span><span class="name">الطاجيكية</span></div><div class="card" data-search="القيرغيزية kyrgyz kirgisisch"><span class="flag">🇰🇬</span><span class="name">القيرغيزية</span></div><div class="card" data-search="التركمانية turkmen turkmenisch"><span class="flag">🇹🇲</span><span class="name">التركمانية</span></div><div class="card" data-search="الأورومو oromo oromo"><span class="flag">🇪🇹</span><span class="name">الأورومو</span></div><div class="card" data-search="الولوف wolof wolof"><span class="flag">🇸🇳</span><span class="name">الولوف</span></div><div class="card" data-search="البامبارا bambara bambara"><span class="flag">🇲🇱</span><span class="name">البامبارا</span></div><div class="card" data-search="الديفيهية (المالديف) divehi (maldives) dhivehi (malediven)"><span class="flag">🇲🇻</span><span class="name">الديفيهية (المالديف)</span></div><div class="card" data-search="الروهينغية rohingya rohingya"><span class="flag">🇲🇲</span><span class="name">الروهينغية</span></div><div class="card" data-search="الألبانية albanian albanisch"><span class="flag">🇦🇱</span><span class="name">الألبانية</span></div><div class="card" data-search="البوسنية bosnian bosnisch"><span class="flag">🇧🇦</span><span class="name">البوسنية</span></div><div class="card" data-search="الصينية (الماندرين) chinese (mandarin) chinesisch (mandarin)"><span class="flag">🇨🇳</span><span class="name">الصينية (الماندرين)</span></div><div class="card" data-search="الهندية hindi hindi"><span class="flag">🇮🇳</span><span class="name">الهندية</span></div><div class="card" data-search="الإسبانية spanish spanisch"><span class="flag">🇪🇸</span><span class="name">الإسبانية</span></div><div class="card" data-search="الفرنسية french französisch"><span class="flag">🇫🇷</span><span class="name">الفرنسية</span></div><div class="card" data-search="البرتغالية portuguese portugiesisch"><span class="flag">🇵🇹</span><span class="name">البرتغالية</span></div><div class="card" data-search="الروسية russian russisch"><span class="flag">🇷🇺</span><span class="name">الروسية</span></div><div class="card" data-search="الألمانية german deutsch"><span class="flag">🇩🇪</span><span class="name">الألمانية</span></div><div class="card" data-search="اليابانية japanese japanisch"><span class="flag">🇯🇵</span><span class="name">اليابانية</span></div><div class="card" data-search="السواحيلية swahili suaheli"><span class="flag">🇹🇿</span><span class="name">السواحيلية</span></div><div class="card" data-search="العبرية hebrew hebräisch"><span class="flag">🇮🇱</span><span class="name">العبرية</span></div><div class="card" data-search="الكورية korean koreanisch"><span class="flag">🇰🇷</span><span class="name">الكورية</span></div><div class="card" data-search="الفيتنامية vietnamese vietnamesisch"><span class="flag">🇻🇳</span><span class="name">الفيتنامية</span></div><div class="card" data-search="التيلوغو telugu telugu"><span class="flag">🇮🇳</span><span class="name">التيلوغو</span></div><div class="card" data-search="التاميلية tamil tamil"><span class="flag">🇮🇳</span><span class="name">التاميلية</span></div><div class="card" data-search="الإيطالية italian italienisch"><span class="flag">🇮🇹</span><span class="name">الإيطالية</span></div><div class="card" data-search="المنغولية mongolian mongolisch"><span class="flag">🇲🇳</span><span class="name">المنغولية</span></div><div class="card" data-search="المدغشقرية malagasy madagassisch"><span class="flag">🇲🇬</span><span class="name">المدغشقرية</span></div><div class="card" data-search="النيبالية nepali nepalesisch"><span class="flag">🇳🇵</span><span class="name">النيبالية</span></div><div class="card" data-search="المراثية marathi marathi"><span class="flag">🇮🇳</span><span class="name">المراثية</span></div><div class="card" data-search="الأوكرانية ukrainian ukrainisch"><span class="flag">🇺🇦</span><span class="name">الأوكرانية</span></div><div class="card" data-search="الهولندية dutch niederländisch"><span class="flag">🇳🇱</span><span class="name">الهولندية</span></div><div class="card" data-search="التايلاندية thai thai"><span class="flag">🇹🇭</span><span class="name">التايلاندية</span></div><div class="card" data-search="التغالوغية / الفلبينية tagalog / filipino tagalog / filipino"><span class="flag">🇵🇭</span><span class="name">التغالوغية / الفلبينية</span></div><div class="card" data-search="السويدية swedish schwedisch"><span class="flag">🇸🇪</span><span class="name">السويدية</span></div><div class="card" data-search="الكانادا kannada kannada"><span class="flag">🇮🇳</span><span class="name">الكانادا</span></div><div class="card" data-search="البهوجبورية bhojpuri bhojpuri"><span class="flag">🇮🇳</span><span class="name">البهوجبورية</span></div><div class="card" data-search="الأوديا odia odia"><span class="flag">🇮🇳</span><span class="name">الأوديا</span></div><div class="card" data-search="السنهالية sinhala singhalesisch"><span class="flag">🇱🇰</span><span class="name">السنهالية</span></div><div class="card" data-search="اليوروبا yoruba yoruba"><span class="flag">🇳🇬</span><span class="name">اليوروبا</span></div><div class="card" data-search="الإيغبو igbo igbo"><span class="flag">🇳🇬</span><span class="name">الإيغبو</span></div><div class="card" data-search="الزولو zulu zulu"><span class="flag">🇿🇦</span><span class="name">الزولو</span></div><div class="card" data-search="الوو (wu) wu chinese wu-chinesisch"><span class="flag">🇨🇳</span><span class="name">الوو (Wu)</span></div><div class="card" data-search="المين نان (min nan) min nan min nan"><span class="flag">🇹🇼</span><span class="name">المين نان (Min Nan)</span></div><div class="card" data-search="الهاكا (hakka) hakka hakka"><span class="flag">🇨🇳</span><span class="name">الهاكا (Hakka)</span></div><div class="card" data-search="الجينيو (jinyu) jinyu jinyu"><span class="flag">🇨🇳</span><span class="name">الجينيو (Jinyu)</span></div><div class="card" data-search="الشيانغ (xiang) xiang xiang"><span class="flag">🇨🇳</span><span class="name">الشيانغ (Xiang)</span></div><div class="card" data-search="الأرمينية armenian armenisch"><span class="flag">🇦🇲</span><span class="name">الأرمينية</span></div><div class="card" data-search="البيلاروسية belarusian belarussisch"><span class="flag">🇧🇾</span><span class="name">البيلاروسية</span></div><div class="card" data-search="البلغارية bulgarian bulgarisch"><span class="flag">🇧🇬</span><span class="name">البلغارية</span></div><div class="card" data-search="الكرواتية croatian kroatisch"><span class="flag">🇭🇷</span><span class="name">الكرواتية</span></div><div class="card" data-search="الدنماركية danish dänisch"><span class="flag">🇩🇰</span><span class="name">الدنماركية</span></div><div class="card" data-search="الإستونية estonian estnisch"><span class="flag">🇪🇪</span><span class="name">الإستونية</span></div><div class="card" data-search="الفنلندية finnish finnisch"><span class="flag">🇫🇮</span><span class="name">الفنلندية</span></div><div class="card" data-search="الجورجية georgian georgisch"><span class="flag">🇬🇪</span><span class="name">الجورجية</span></div><div class="card" data-search="اللاتفية latvian lettisch"><span class="flag">🇱🇻</span><span class="name">اللاتفية</span></div><div class="card" data-search="الليتوانية lithuanian litauisch"><span class="flag">🇱🇹</span><span class="name">الليتوانية</span></div><div class="card" data-search="المقدونية macedonian mazedonisch"><span class="flag">🇲🇰</span><span class="name">المقدونية</span></div><div class="card" data-search="النرويجية norwegian norwegisch"><span class="flag">🇳🇴</span><span class="name">النرويجية</span></div><div class="card" data-search="الصربية serbian serbisch"><span class="flag">🇷🇸</span><span class="name">الصربية</span></div><div class="card" data-search="السلوفاكية slovak slowakisch"><span class="flag">🇸🇰</span><span class="name">السلوفاكية</span></div><div class="card" data-search="السلوفينية slovenian slowenisch"><span class="flag">🇸🇮</span><span class="name">السلوفينية</span></div><div class="card" data-search="البولندية polish polnisch"><span class="flag">🇵🇱</span><span class="name">البولندية</span></div><div class="card" data-search="الرومانية romanian rumänisch"><span class="flag">🇷🇴</span><span class="name">الرومانية</span></div><div class="card" data-search="اليونانية greek griechisch"><span class="flag">🇬🇷</span><span class="name">اليونانية</span></div><div class="card" data-search="التشيكية czech tschechisch"><span class="flag">🇨🇿</span><span class="name">التشيكية</span></div><div class="card" data-search="الهنغارية hungarian ungarisch"><span class="flag">🇭🇺</span><span class="name">الهنغارية</span></div></div>
+<p class="note">بالإضافة إلى دعم مسار لغة الإشارة كمسار إتاحة خاص.</p>
+
+<div class="doc-download-panel">
+<div>
+<strong>حمّل التعريف بالمؤسسة بـ91 لغة</strong>
+<p>الوثيقة تتضمن تعريفًا مختصرًا بالمؤسسة ومنهجها ورؤيتها ونظام الثلاثيات وبيانات التواصل.</p>
+</div>
+<a class="download-link" download="" href="../resources/IHDINA_91_Languages_Introduction.docx">⇩ DOCX</a>
+</div>
+</div>
+</div>
+<script>
+const input=document.getElementById('languageSearch');
+const cards=[...document.querySelectorAll('#languageGrid .card')];
+input?.addEventListener('input',()=>{
+  const q=input.value.trim().toLowerCase();
+  cards.forEach(c=>c.style.display=(!q || c.dataset.search.includes(q))?'flex':'none');
+});
+</script>
+</body></html>
