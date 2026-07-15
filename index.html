@@ -1,281 +1,184 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f3a32">
-<meta name="description" content="إهدنا — منصة المسلم الجديد والمسلمة الجديدة: عش القرآن كما نزل أول مرة. أول محاكاة تفاعلية للنزول الأول بالكتل المعرفية، بثلاثين لغة.">
-<meta property="og:title" content="IHDINA — New Muslim & Muslimah Center | إهدنا">
-<meta property="og:description" content="عش القرآن كما نزل أول مرة — تفسير تفاعلي يبدأ بك أنت.">
-<meta property="og:type" content="website">
-<title>IHDINA — New Muslim &amp; Muslimah Center | إهدنا</title>
-<link rel="icon" type="image/png" href="assets/logo-mark.png">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="assets/icon-192.png">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/i18n.js"></script>
-<script src="js/translations.js"></script>
-<script src="js/projects.js"></script>
-<script src="js/projects_showcase.js"></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="إهدنا — 1word4world.net | منصة عالمية لهندسة الهداية وبناء الإنسان بالوحي" name="description"/>
+<title>إهدنا — 1word4world.net</title>
+<link href="styles.css" rel="stylesheet"/>
+<style>
+    #mobileLinks{display:none;padding:0 0 14px;border-top:1px solid var(--line)}
+    #mobileLinks.open{display:grid}
+    #mobileLinks a{padding:9px 0;color:#355a62;font-weight:800}
+  </style>
+<link href="index.html" hreflang="ar" rel="alternate"/><link href="en/index.html" hreflang="en" rel="alternate"/><link href="de/index.html" hreflang="de" rel="alternate"/></head>
 <body>
-
-<div class="topbar">
-  <div class="in">
-    <div class="logo"><img src="assets/logo-mark.png" alt="إهدنا" class="logo-img">IHDINA <small>New Muslim &amp; Muslimah Center</small></div>
-    <nav>
-      <a href="#nazul" data-i18n="nazul_kicker">الفكرة الأمّ</a>
-      <a href="#firsts" data-i18n="firsts_title">أوّليات</a>
-      <a href="#projects" data-i18n="projects_title">المشاريع</a>
-      <a href="#gallery" data-i18n="gallery_title">الهوية</a>
-      <a href="#donors" data-i18n="cta_partner">كن شريكاً</a>
-    </nav>
-    <div class="langs" id="langBtns"></div>
-  </div>
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href="#">
+<span class="brand-badge"><img alt="" src="assets/platform_mark.png"/></span>
+<span class="brand-copy"><strong>إهدنا</strong><small>1word4world.net</small></span>
+</a>
+<nav aria-label="القائمة الرئيسية" class="nav-links">
+<a class="active" href="#">الرئيسية</a>
+<a href="#journeys">الرحلات</a>
+<a href="#why">لماذا إهدنا؟</a>
+<a href="#projects">المشاريع</a>
+<a href="#promise">عن إهدنا</a>
+<a href="#start">ابدأ رحلتك</a>
+</nav>
+<div class="nav-actions"><div aria-label="Language switcher" class="language-switcher"><a class="active" href="index.html">العربية</a><a class="" href="en/index.html">English</a><a class="" href="de/index.html">Deutsch</a></div>
+<a class="btn btn-primary" href="#start">ابدأ رحلتك</a>
+<button aria-label="القائمة" class="menu-btn" id="menuButton">☰</button>
 </div>
-
-<!-- HERO -->
-<div class="hero">
-  <span class="hero-pattern"></span>
-  <div class="wrap">
-    <div class="hero-logo">
-      <span class="halo"></span>
-      <span class="orbit"></span>
-      <img src="assets/logo-full.png" alt="إهدنا — الصراط المستقيم">
-    </div>
-    <span class="kicker" data-i18n="hero_kicker"></span>
-    <h1 data-i18n="hero_title"></h1>
-    <p data-i18n="hero_sub"></p>
-    <div class="cta-row">
-      <a class="btn primary" href="#journey" data-i18n="cta_start"></a>
-      <a class="btn gold" href="#donors" data-i18n="cta_partner"></a>
-    </div>
-    <span class="demo"><a href="platform/index.html" target="_blank" data-i18n="demo_note"></a></span>
-  </div>
 </div>
+<div class="container" id="mobileLinks">
+<a href="#">الرئيسية</a><a href="#journeys">الرحلات</a><a href="#why">لماذا إهدنا؟</a>
+<a href="#projects">المشاريع</a><a href="#promise">عن إهدنا</a><a href="#start">ابدأ رحلتك</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<div aria-label="سلايدر المشاريع والمسارات" class="hero-slider">
 
-<!-- COMMUNITY BAND -->
-<div class="photo-band"><img src="assets/photos/community.jpg" alt="1 Word 4 World — IHDINA" loading="lazy"></div>
 
-<!-- VERSE divider -->
-<div class="verse-band"><div class="wrap"><p data-i18n="verse_nazul"></p></div></div>
 
-<!-- NAZUL — الفكرة الأم -->
-<section id="nazul" class="dark">
-  <span class="sec-deco" style="background-image:url(assets/gallery/mihrab-gold.jpg)"></span>
-  <div class="wrap">
-    <span class="kick" data-i18n="nazul_kicker"></span>
-    <h2 class="sec light" data-i18n="nazul_title"></h2>
-    <p class="sec-sub light" data-i18n="nazul_sub"></p>
-    <div class="flow-label"><span class="ln"></span><span data-i18n="nazul_flow_label"></span><span class="ln"></span></div>
-    <div class="blocks" id="blocksFlow"></div>
-    <div class="reactor">
-      <div class="reactor-core">☢</div>
-      <div class="reactor-txt">
-        <h3 data-i18n="reactor_t"></h3>
-        <p data-i18n="reactor_d"></p>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
+
+<article class="slide active"><a aria-label="مركز المسلم الجديد والمسلمة الجديدة" class="localized-slide-link" href="projects/new-muslim-center.html"><img alt="مركز المسلم الجديد والمسلمة الجديدة" class="localized-slide-image" loading="eager" src="assets/slider_localized/new-muslim-center_ar.jpg"/><span class="sr-only">مركز المسلم الجديد والمسلمة الجديدة</span></a></article><article class="slide"><a aria-label="التفسير التفاعلي الذكي" class="localized-slide-link" href="projects/interactive-tafsir.html"><img alt="التفسير التفاعلي الذكي" class="localized-slide-image" loading="lazy" src="assets/slider_localized/interactive-tafsir_ar.jpg"/><span class="sr-only">التفسير التفاعلي الذكي</span></a></article><article class="slide"><a aria-label="مشروع مريم" class="localized-slide-link" href="projects/mariam.html"><img alt="مشروع مريم" class="localized-slide-image" loading="lazy" src="assets/slider_localized/mariam_ar.jpg"/><span class="sr-only">مشروع مريم</span></a></article><article class="slide"><a aria-label="مجلة إهدنا العالمية" class="localized-slide-link" href="projects/magazine.html"><img alt="مجلة إهدنا العالمية" class="localized-slide-image" loading="lazy" src="assets/slider_localized/magazine_ar.jpg"/><span class="sr-only">مجلة إهدنا العالمية</span></a></article><article class="slide"><a aria-label="دار الأرقم الثانية" class="localized-slide-link" href="projects/dar-al-arqam.html"><img alt="دار الأرقم الثانية" class="localized-slide-image" loading="lazy" src="assets/slider_localized/dar-al-arqam_ar.jpg"/><span class="sr-only">دار الأرقم الثانية</span></a></article><article class="slide"><a aria-label="نظرية الكتل المعرفية" class="localized-slide-link" href="projects/knowledge-blocks.html"><img alt="نظرية الكتل المعرفية" class="localized-slide-image" loading="lazy" src="assets/slider_localized/knowledge-blocks_ar.jpg"/><span class="sr-only">نظرية الكتل المعرفية</span></a></article><article class="slide"><a aria-label="٩١ لغة عالمية" class="localized-slide-link" href="projects/languages.html"><img alt="٩١ لغة عالمية" class="localized-slide-image" loading="lazy" src="assets/slider_localized/languages-91_ar.jpg"/><span class="sr-only">٩١ لغة عالمية</span></a></article><article class="slide"><a aria-label="اكتشف الإسلام" class="localized-slide-link" href="projects/discover-islam.html"><img alt="اكتشف الإسلام" class="localized-slide-image" loading="lazy" src="assets/slider_localized/discover-islam_ar.jpg"/><span class="sr-only">اكتشف الإسلام</span></a></article><article class="slide"><a aria-label="هل أنت مسلم جديد؟" class="localized-slide-link" href="projects/new-muslim.html"><img alt="هل أنت مسلم جديد؟" class="localized-slide-image" loading="lazy" src="assets/slider_localized/new-muslim-journey_ar.jpg"/><span class="sr-only">هل أنت مسلم جديد؟</span></a></article><article class="slide"><a aria-label="متجر إهدنا" class="localized-slide-link" href="projects/store.html"><img alt="متجر إهدنا" class="localized-slide-image" loading="lazy" src="assets/slider_localized/store_ar.jpg"/><span class="sr-only">متجر إهدنا</span></a></article><button aria-label="السابق" class="slider-arrow prev" id="prevSlide">‹</button>
+<button aria-label="التالي" class="slider-arrow next" id="nextSlide">›</button>
+<div class="slider-dots" id="sliderDots"></div>
+<div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">10</span></div>
+</div>
+</div>
 </section>
-
-<!-- PILLARS -->
-<section id="pillars">
-  <div class="wrap">
-    <h2 class="sec" data-i18n="pillars_title"></h2>
-    <div class="pillars">
-      <div class="pillar">
-        <span class="pic" style="background-image:url(assets/photos/proj-cards.jpg)"></span>
-        <div class="pbody"><span class="pnum">01</span><h3 data-i18n="pillar1_t"></h3><p data-i18n="pillar1_d"></p></div>
-      </div>
-      <div class="pillar">
-        <span class="pic" style="background-image:url(assets/photos/worldmap.jpg)"></span>
-        <div class="pbody"><span class="pnum">02</span><h3 data-i18n="pillar2_t"></h3><p data-i18n="pillar2_d"></p></div>
-      </div>
-      <div class="pillar">
-        <span class="pic" style="background-image:url(assets/photos/allah-arqam.jpg);background-position:center 30%"></span>
-        <div class="pbody"><span class="pnum">03</span><h3 data-i18n="pillar3_t"></h3><p data-i18n="pillar3_d"></p></div>
-      </div>
-    </div>
-  </div>
+<section class="section reveal" id="journeys">
+<div class="container">
+<div class="section-head">
+<div class="eyebrow">ثلاثة أبواب عالمية</div>
+<h2 class="section-title">اختر الباب الذي يشبهك</h2>
+<p class="section-lead">ابدأ من موقعك الحقيقي، ودع المنصة تقودك إلى الخطوة الأنسب لك.</p>
+</div>
+<div class="gateways">
+<a class="gateway" href="projects/new-muslim.html">
+<div><h3>المسلم الجديد</h3><p>خطوات واثقة لبداية جميلة وثابتة.</p><span class="btn btn-light">ابدأ رحلتك</span></div>
+</a>
+<a class="gateway" href="projects/discover-islam.html">
+<div><h3>اكتشف الإسلام</h3><p>إجابات رحيمة وحكيمة عن الإسلام والحياة والإنسان.</p><span class="btn btn-light">اكتشف الآن</span></div>
+</a>
+<a class="gateway" href="projects/knowledge-blocks.html">
+<div><h3>ابدأ من جديد</h3><p>أعد بناء رحلتك مع القرآن كما بدأها الجيل الأول.</p><span class="btn btn-light">ابدأ الآن</span></div>
+</a>
+</div>
+</div>
 </section>
-
-<!-- FIRSTS -->
-<section id="firsts" class="tint">
-  <div class="wrap">
-    <h2 class="sec" data-i18n="firsts_title"></h2>
-    <p class="sec-sub" data-i18n="firsts_sub"></p>
-    <div class="firsts">
-      <div class="first-card"><span class="num">1</span>
-        <span class="badge">WORLD FIRST</span>
-        <h3 data-i18n="first1_t"></h3><p data-i18n="first1_d"></p>
-      </div>
-      <div class="first-card"><span class="num">2</span>
-        <span class="badge">WORLD FIRST</span>
-        <h3 data-i18n="first2_t"></h3><p data-i18n="first2_d"></p>
-      </div>
-      <div class="first-card"><span class="num">3</span>
-        <span class="badge">WORLD FIRST</span>
-        <h3 data-i18n="first3_t"></h3><p data-i18n="first3_d"></p>
-      </div>
-    </div>
-  </div>
+<section class="section reveal" id="why">
+<div class="container">
+<div class="section-head">
+<div class="eyebrow">الفرق الذي نبنيه</div>
+<h2 class="section-title">لماذا إهدنا؟</h2>
+<p class="section-lead">لسنا مكتبة محتوى أخرى؛ بل منظومة شخصية للهداية والتكوين، تقوم على الوحي وتقرأ الإنسان ومرحلته.</p>
+</div>
+<div class="why-grid">
+<article class="why-card">
+<div class="why-art"><img alt="" src="assets/languages_91.png"/></div>
+<div class="why-body"><div class="why-number">91</div><h3>لغة عالمية</h3><p>رؤية تتجاوز الحدود لتصل الهداية إلى الإنسان بلغته.</p></div>
+</article>
+<article class="why-card">
+<div class="why-art"><img alt="" src="assets/interactive_tafsir.png"/></div>
+<div class="why-body"><h3>التفسير التفاعلي الذكي</h3><p>العمود الفقري المعرفي الذي يربط النص بالإنسان والمرحلة والتحول.</p></div>
+</article>
+<article class="why-card">
+<div class="why-art"><img alt="" src="assets/knowledge_blocks.png"/></div>
+<div class="why-body"><h3>منهج قرآني متدرج</h3><p>محاكاة منطق النزول الأول والكتل المعرفية بدل المحتوى العشوائي.</p></div>
+</article>
+<article class="why-card">
+<div class="why-art"><img alt="" src="assets/discover_islam.png"/></div>
+<div class="why-body"><h3>رحلة شخصية موجهة</h3><p>نفهمك، نوجهك، ونرافقك نحو خطوتك التالية.</p></div>
+</article>
+</div>
+</div>
 </section>
-
-<!-- LAYERS — 15 طبقة -->
-<section id="layers">
-  <div class="wrap">
-    <h2 class="sec" data-i18n="layers_title"></h2>
-    <p class="sec-sub" data-i18n="layers_sub"></p>
-    <div class="layers" id="layersGrid"></div>
-    <p class="layers-more" data-i18n="layers_more"></p>
-  </div>
+<section class="section reveal" id="projects">
+<div class="container">
+<div class="section-head">
+<div class="eyebrow">نماذج من منظومة إهدنا</div>
+<h2 class="section-title">مشاريع مميزة</h2>
+<p class="section-lead">لكل مشروع هويته وصفحته المستقلة، بينما تجمعها المنصة في رؤية واحدة.</p>
+</div>
+<div class="projects-grid">
+<article class="project-card">
+<div class="project-media logo"><img alt="مركز المسلم الجديد والمسلمة الجديدة" src="assets/new_muslim_logo.jpg"/></div>
+<div class="project-body"><h3>مركز المسلم الجديد والمسلمة الجديدة</h3><p>رعاية متكاملة وإرشاد حكيم للبداية الصحيحة والثبات والنمو.</p><a class="project-link" href="projects/new-muslim-center.html">اكتشف المشروع ←</a></div>
+</article>
+<article class="project-card">
+<div class="project-media logo"><img alt="دار الأرقم الثانية" src="assets/dar_al_arqam_logo.jpg"/></div>
+<div class="project-body"><h3>دار الأرقم الثانية</h3><p>بيئة تكوين وصحبة وبناء تعيد روح التربية الأولى إلى الواقع.</p><a class="project-link" href="projects/dar-al-arqam.html">اكتشف المشروع ←</a></div>
+</article>
+<article class="project-card">
+<div class="project-media logo"><img alt="مشروع مريم" src="assets/mariam_logo.png"/></div>
+<div class="project-body"><h3>مشروع مريم</h3><p>تمكين المرأة وبناء المعرفة والسكينة والهوية والرسالة.</p><a class="project-link" href="projects/mariam.html">اكتشف المشروع ←</a></div>
+</article>
+<article class="project-card">
+<div class="project-media art"><img alt="" src="assets/interactive_tafsir.png"/></div>
+<div class="project-body"><h3>التفسير التفاعلي الذكي</h3><p>فهم أعمق، ربط أذكى، وتحول حقيقي.</p><a class="project-link" href="projects/interactive-tafsir.html">استكشف الآن ←</a></div>
+</article>
+<article class="project-card">
+<div class="project-media art"><img alt="" src="assets/magazine.png"/></div>
+<div class="project-body"><h3>مجلة إهدنا العالمية</h3><p>خطاب عالمي يقرأ الحياة بعين الوحي.</p><a class="project-link" href="projects/magazine.html">اقرأ المجلة ←</a></div>
+</article>
+<article class="project-card">
+<div class="project-media art"><img alt="" src="assets/store.png"/></div>
+<div class="project-body"><h3>متجر إهدنا</h3><p>إصدارات المؤسسة ومنتجاتها التعليمية والتربوية في مكان واحد.</p><a class="project-link" href="projects/store.html">تسوق الآن ←</a></div>
+</article>
+</div>
+</div>
 </section>
-
-<!-- WELCOME BAND -->
-<div class="photo-band tall"><img src="assets/photos/welcome-wide.jpg" alt="Ihdina for new Muslim & Muslimah" loading="lazy"></div>
-
-<!-- ARQAM spotlight -->
-<section id="arqam" class="split">
-  <div class="wrap split-in">
-    <div class="split-media">
-      <img src="assets/photos/medallion.jpg" alt="دار الأرقم الثانية">
-    </div>
-    <div class="split-txt">
-      <span class="kick" data-i18n="arqam_kicker"></span>
-      <h2 class="sec ar" data-i18n="arqam_title"></h2>
-      <p class="lead" data-i18n="arqam_lead"></p>
-      <div class="arqam-points">
-        <div><span>◈</span><span data-i18n="arqam_p1"></span></div>
-        <div><span>◈</span><span data-i18n="arqam_p2"></span></div>
-        <div><span>◈</span><span data-i18n="arqam_p3"></span></div>
-        <div><span>◈</span><span data-i18n="arqam_p4"></span></div>
-      </div>
-    </div>
-  </div>
+<section class="section reveal" id="promise">
+<div class="container">
+<div class="promise-wrap">
+<div class="promise-copy">
+<div class="eyebrow">وعد إهدنا</div>
+<h2>منصة عالمية لهندسة الهداية وبناء الإنسان بالوحي</h2>
+<p>نحو إنسان يعبد ربه بوعي، ويتلقى الوحي بمنهج، ويتحول بالمعرفة والتزكية والحركة إلى إحسان مستدام.</p>
+</div>
+<div class="triad">
+<article class="triad-card"><div class="triad-icon">ﷲ</div><h3>الله</h3><p>المبدأ والغاية</p></article>
+<article class="triad-card"><div class="triad-icon">📖</div><h3>الوحي</h3><p>الهداية والمنهج</p></article>
+<article class="triad-card"><div class="triad-icon">👤</div><h3>الإنسان</h3><p>المتلقي والمتحول</p></article>
+</div>
+</div>
+</div>
 </section>
-
-<!-- REACH — حائط الأعلام -->
-<section id="reach" class="dark">
-  <div class="wrap">
-    <h2 class="sec light" data-i18n="reach_title"></h2>
-    <p class="sec-sub light" data-i18n="reach_sub"></p>
-    <figure class="reach-map" data-full="assets/photos/worldmap.jpg">
-      <img src="assets/photos/worldmap.jpg" alt="نطاق لغوي يفتح أبواب الهداية" loading="lazy">
-    </figure>
-    <div class="reach-block">
-      <div class="reach-label"><span class="dot" style="background:var(--gold2)"></span><span data-i18n="reach_deep"></span></div>
-      <div class="flag-wall" id="flagsDeep"></div>
-    </div>
-    <div class="reach-block">
-      <div class="reach-label"><span class="dot" style="background:var(--turq)"></span><span data-i18n="reach_world"></span></div>
-      <div class="flag-wall" id="flagsWorld"></div>
-    </div>
-  </div>
+<section class="section reveal" id="start">
+<div class="container">
+<div class="final-cta">
+<div class="final-cta-inner">
+<div class="eyebrow" style="color:#f0ce88">خطوة اليوم قد تغيّر عمرك كله</div>
+<h2>رحلتك إلى الهداية تبدأ من هنا</h2>
+<p>ابدأ من حيث أنت، ودع الوحي يقودك إلى خطوتك التالية.</p>
+<div class="final-actions">
+<a class="btn btn-primary" href="projects/new-muslim.html">ابدأ رحلتك الآن</a>
+<a class="btn btn-light" href="#projects">استكشف المشاريع</a>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- JOURNEY -->
-<section id="journey" class="tint">
-  <div class="wrap">
-    <h2 class="sec" data-i18n="journey_title"></h2>
-    <p class="sec-sub"></p>
-    <div class="journey">
-      <div class="j-step"><div class="n">١</div><h4 data-i18n="j1_t"></h4><p data-i18n="j1_d"></p></div>
-      <div class="j-step"><div class="n">٢</div><h4 data-i18n="j2_t"></h4><p data-i18n="j2_d"></p></div>
-      <div class="j-step"><div class="n">٣</div><h4 data-i18n="j3_t"></h4><p data-i18n="j3_d"></p></div>
-      <div class="j-step"><div class="n">٤</div><h4 data-i18n="j4_t"></h4><p data-i18n="j4_d"></p></div>
-    </div>
-  </div>
-</section>
-
-<!-- NUMBERS -->
-<section>
-  <div class="wrap">
-    <h2 class="sec" data-i18n="numbers_title" style="margin-bottom:30px"></h2>
-    <div class="numbers">
-      <div><div class="n">1,431</div><div class="l" data-i18n="n_blocks"></div></div>
-      <div><div class="n">35</div><div class="l" data-i18n="n_laws"></div></div>
-      <div><div class="n">30+</div><div class="l" data-i18n="n_langs"></div></div>
-      <div><div class="n">34</div><div class="l" data-i18n="n_projects"></div></div>
-      <div><div class="n">15</div><div class="l" data-i18n="layers_title"></div></div>
-      <div><div class="n">3</div><div class="l" data-i18n="n_paths"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="tint">
-  <div class="wrap">
-    <h2 class="sec" data-i18n="showcase_core_title"></h2>
-    <p class="sec-sub" data-i18n="showcase_core_sub"></p>
-    <div class="proj-grid" id="projGrid"></div>
-
-    <h2 class="sec" style="margin-top:52px" data-i18n="showcase_exp_title"></h2>
-    <p class="sec-sub" data-i18n="showcase_exp_sub"></p>
-    <div class="exp-cloud" id="expCloud"></div>
-
-    <figure class="proj-showcase" data-full="assets/photos/projectmap.jpg" style="margin-top:40px">
-      <img src="assets/photos/projectmap.jpg" alt="ملصق مشاريع إهدنا" loading="lazy">
-      <figcaption data-i18n="projmap_note"></figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- GALLERY — الهوية -->
-<section id="gallery" class="dark">
-  <div class="wrap">
-    <h2 class="sec light" data-i18n="gallery_title"></h2>
-    <p class="sec-sub light" data-i18n="gallery_sub"></p>
-    <div class="gallery" id="galleryGrid"></div>
-  </div>
-</section>
-
-<!-- DONORS -->
-<section id="donors">
-  <div class="wrap">
-    <h2 class="sec" data-i18n="donors_title"></h2>
-    <p class="sec-sub" data-i18n="donors_sub"></p>
-    <div class="donors-grid">
-      <div class="donor-card"><h4 data-i18n="d1_t"></h4><p data-i18n="d1_d"></p></div>
-      <div class="donor-card"><h4 data-i18n="d2_t"></h4><p data-i18n="d2_d"></p></div>
-      <div class="donor-card"><h4 data-i18n="d3_t"></h4><p data-i18n="d3_d"></p></div>
-    </div>
-    <h2 class="sec" style="font-size:19px" data-i18n="support_types_title"></h2>
-    <div class="support-types">
-      <div data-i18n="s1"></div><div data-i18n="s2"></div>
-      <div data-i18n="s3"></div><div data-i18n="s4"></div>
-    </div>
-    <div class="donors-cta">
-      <a class="btn gold" id="donorMail" href="#" data-i18n="donors_cta"></a>
-      <p class="note" data-i18n="donors_note"></p>
-    </div>
-  </div>
-</section>
-
-<!-- SHARE -->
-<section class="tint">
-  <div class="wrap">
-    <div class="share">
-      <h2 data-i18n="share_title"></h2>
-      <p data-i18n="share_sub"></p>
-      <div class="share-row" id="shareRow"></div>
-    </div>
-  </div>
-</section>
-
+</main>
 <footer>
-  <div data-i18n="footer_line"></div>
-  <div style="margin-top:6px"><span class="g">إهدنا الصراط المستقيم</span> · <span data-i18n="footer_privacy"></span></div>
+<div class="container footer-grid">
+<div>© إهدنا — 1word4world.net · كلمة الهداية للجميع</div>
+<div class="footer-links"><a href="#why">لماذا إهدنا؟</a><a href="#projects">المشاريع</a><a href="#promise">عن إهدنا</a></div>
+</div>
 </footer>
-
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox"><span class="lb-close">✕</span><img id="lbImg" src="" alt=""></div>
-
-<script src="js/main.js"></script>
-<script>
-if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-  navigator.serviceWorker.register('sw.js');
-}
-</script>
+<script src="app.js"></script>
 </body>
 </html>
